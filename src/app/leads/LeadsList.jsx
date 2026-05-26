@@ -14,6 +14,7 @@ import LeadDetalhe from './components/LeadDetalhe'
 export default function LeadsList() {
   const session = getSession()
   const [view, setView] = useState('kanban') // 'kanban' | 'lista'
+  const [showHistorico, setShowHistorico] = useState(false) // mostra colunas Convertido/Perdido
   const [leads, setLeads] = useState(LEADS_SEED)
   const [busca, setBusca] = useState('')
   const [filtroOrigem, setFiltroOrigem] = useState('todas')
@@ -173,9 +174,43 @@ export default function LeadsList() {
 
       {/* KANBAN */}
       {view === 'kanban' && (
-        <div className="overflow-x-auto pb-4">
-          <div className="flex gap-4 min-w-max">
-            {ESTAGIOS.map(estagio => (
+        <>
+          {/* Tab funil ativo vs histórico */}
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex rounded-lg bg-slate-100 p-1">
+              <button
+                onClick={() => setShowHistorico(false)}
+                className={`flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-semibold transition ${
+                  !showHistorico ? 'bg-white text-brand shadow-soft' : 'text-slate-500'
+                }`}
+              >
+                <Target size={12} /> Funil ativo
+                <span className="ml-1 rounded-full bg-slate-200 px-1.5 text-[10px] text-slate-600">
+                  {porEstagio.novo.length + porEstagio.qualificando.length + porEstagio.negociando.length + porEstagio.onboarding.length}
+                </span>
+              </button>
+              <button
+                onClick={() => setShowHistorico(true)}
+                className={`flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-semibold transition ${
+                  showHistorico ? 'bg-white text-brand shadow-soft' : 'text-slate-500'
+                }`}
+              >
+                <Award size={12} /> Histórico
+                <span className="ml-1 rounded-full bg-slate-200 px-1.5 text-[10px] text-slate-600">
+                  {porEstagio.convertido.length + porEstagio.perdido.length}
+                </span>
+              </button>
+            </div>
+            <p className="text-xs text-slate-500">
+              💡 Arraste cards entre colunas para mover de estágio
+            </p>
+          </div>
+
+          <div className="grid gap-3 lg:grid-cols-4">
+            {(showHistorico
+              ? ESTAGIOS.filter(e => e.id === 'convertido' || e.id === 'perdido')
+              : ESTAGIOS.filter(e => e.id !== 'convertido' && e.id !== 'perdido')
+            ).map(estagio => (
               <KanbanColumn
                 key={estagio.id}
                 estagio={estagio}
@@ -186,7 +221,7 @@ export default function LeadsList() {
               />
             ))}
           </div>
-        </div>
+        </>
       )}
 
       {/* LISTA */}
@@ -273,17 +308,16 @@ function KanbanColumn({ estagio, leads, onDrop, onDragStart, onLeadClick }) {
     <div
       onDragOver={(e) => e.preventDefault()}
       onDrop={onDrop}
-      className="w-72 flex-shrink-0 rounded-2xl bg-slate-50 p-3"
+      className="rounded-2xl bg-slate-50 p-2.5"
     >
-      <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="mb-2 flex items-center justify-between border-b border-slate-200 pb-2">
+        <div className="flex items-center gap-1.5">
           <span className="h-2 w-2 rounded-full" style={{ backgroundColor: estagio.cor }} />
           <h3 className="font-display text-sm font-bold text-brand">{estagio.label}</h3>
+          <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-slate-500">{leads.length}</span>
         </div>
-        <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-slate-500">{leads.length}</span>
       </div>
-      <p className="mb-3 text-[10px] text-slate-500">{estagio.descricao}</p>
-      <div className="space-y-2 max-h-[600px] overflow-y-auto pr-1">
+      <div className="space-y-2 max-h-[640px] overflow-y-auto pr-1">
         {leads.map(l => (
           <LeadCard
             key={l.id}
@@ -293,8 +327,8 @@ function KanbanColumn({ estagio, leads, onDrop, onDragStart, onLeadClick }) {
           />
         ))}
         {leads.length === 0 && (
-          <div className="rounded-xl border-2 border-dashed border-slate-200 p-4 text-center text-xs text-slate-400">
-            Arraste leads para cá
+          <div className="rounded-xl border-2 border-dashed border-slate-200 p-4 text-center text-[10px] text-slate-400">
+            Sem leads neste estágio
           </div>
         )}
       </div>
