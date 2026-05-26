@@ -1,31 +1,28 @@
-export default function Logo({ size = 36, variant = 'dark', showText = true }) {
-  // Lado esquerdo do "V" é sempre VERDE.
-  // Lado direito é AZUL sobre fundo claro, BRANCO sobre fundo escuro.
-  const colorLeft = '#009E3D'
-  const colorRight = variant === 'light' ? '#ffffff' : '#003869'
-  const textColor = variant === 'light' ? '#ffffff' : '#003869'
-
-  return (
-    <div className="flex items-center gap-2.5">
+export default function Logo({ size = 36, variant = 'dark', iconOnly = false }) {
+  // iconOnly: renderiza apenas o "V" em SVG (para usos compactos)
+  if (iconOnly) {
+    const colorRight = variant === 'light' ? '#FFFFFF' : '#003869'
+    return (
       <svg
         width={size}
         height={size}
-        viewBox="0 0 64 64"
-        aria-label="Logotipo Vidamed"
+        viewBox="0 0 100 100"
+        aria-label="Vidamed"
       >
-        {/* Lado esquerdo do V (verde) */}
-        <path d="M 6 8 L 24 8 L 31 54 L 28 60 Z" fill={colorLeft} />
-        {/* Lado direito do V (azul ou branco) */}
-        <path d="M 40 8 L 58 8 L 36 60 L 33 54 Z" fill={colorRight} />
+        <path d="M 8 12 L 30 12 L 53 82 L 45 88 Z" fill="#009E3D" />
+        <path d="M 70 12 L 92 12 L 55 88 L 47 82 Z" fill={colorRight} />
       </svg>
-      {showText && (
-        <span
-          className="font-display text-xl font-extrabold tracking-tight"
-          style={{ color: textColor, letterSpacing: '-0.02em' }}
-        >
-          Vidamed
-        </span>
-      )}
-    </div>
+    )
+  }
+
+  // Lockup completa: imagem PNG oficial (V + "Vidamed" sobre fundo azul).
+  // Em fundos claros aparece como um badge azul (visual integrado da marca).
+  return (
+    <img
+      src="/logo.png"
+      alt="Vidamed"
+      style={{ height: size, width: 'auto', display: 'block' }}
+      className="rounded-md"
+    />
   )
 }

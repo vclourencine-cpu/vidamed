@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="Logotipo Vidamed">
+  <!-- Lado esquerdo do V (verde) -->
+  <path d="M 8 12 L 30 12 L 53 82 L 45 88 Z" fill="#009E3D"/>
+  <!-- Lado direito do V (branco — para fundos escuros) -->
+  <path d="M 70 12 L 92 12 L 55 88 L 47 82 Z" fill="#FFFFFF"/>
+</svg>
