@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Logo size={44} variant="light" />
             <p className="mt-4 max-w-md text-sm text-white/70">
-              A VIDAMED existe para facilitar, proteger e estruturar a vida médica.
+              A Vidamed existe para facilitar, proteger e estruturar a vida médica.
               Cuidamos de quem cuida, com visão, inteligência e proximidade.
             </p>
             <p className="mt-6 font-display text-lg italic text-accent-light">
@@ -24,16 +24,16 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 flex-shrink-0 text-accent-light" />
-                <span>Av. Dr. Antônio Gomes de Barros, 1246<br />Jatiúca · Maceió/AL · 57036-001</span>
+                <span>Av. Dr. Antônio Gomes de Barros • 1246<br />Jatiúca • Maceió • AL • 57036-001</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="flex-shrink-0 text-accent-light" />
-                <a href="tel:+5581986563840" className="hover:text-white">(81) 98656-3840</a>
+                <a href="tel:+5582981908945" className="hover:text-white">(82) 98190-8945</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="flex-shrink-0 text-accent-light" />
-                <a href="mailto:relacionamentomedico@vidamed.com" className="hover:text-white">
-                  relacionamentomedico@vidamed.com
+                <a href="mailto:relacionamentomedico@vidamedgestao.com.br" className="hover:text-white">
+                  relacionamentomedico@vidamedgestao.com.br
                 </a>
               </li>
             </ul>
@@ -69,7 +69,7 @@ export default function Footer() {
             </ul>
 
             <a
-              href="https://wa.me/5581986563840"
+              href="https://wa.me/5582981908945"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-light"
@@ -81,14 +81,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/50 sm:flex sm:items-center sm:justify-between sm:text-left">
-          <p>© {new Date().getFullYear()} VIDAMED Gestão. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Vidamed Gestão. Todos os direitos reservados.</p>
           <p className="mt-2 sm:mt-0">Gestão Inteligente para a Medicina do Futuro</p>
         </div>
       </div>
 
       {/* WhatsApp flutuante */}
       <a
-        href="https://wa.me/5581986563840"
+        href="https://wa.me/5582981908945"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"

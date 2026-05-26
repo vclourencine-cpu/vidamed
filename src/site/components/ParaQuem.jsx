@@ -29,7 +29,7 @@ export default function ParaQuem() {
       <div className="container-x">
         <div className="text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Para quem a VIDAMED existe
+            Para quem a Vidamed existe
           </span>
           <h2 className="section-title mt-3">
             Para médicos que querem viver a medicina com leveza e visão de futuro.

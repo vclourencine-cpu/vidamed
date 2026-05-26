@@ -107,7 +107,7 @@ export default function PagamentoDetalhe() {
           <Total label="Desc. impostos" valor={formatBRL(totais.desc)} cor="text-red-600" />
           <Total label="Líquido pago" valor={formatBRL(totais.liquido)} />
           <Total label="Taxa adm" valor={formatBRL(totais.taxa)} />
-          <Total label="A receber VIDAMED" valor={formatBRL(totais.aReceber)} destaque />
+          <Total label="A receber Vidamed" valor={formatBRL(totais.aReceber)} destaque />
         </div>
       </div>
 

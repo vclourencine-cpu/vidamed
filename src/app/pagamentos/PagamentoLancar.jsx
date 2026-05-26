@@ -373,11 +373,11 @@ function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais,
           ) : (
             <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-4 font-mono text-sm">
               <div className="space-y-2 border-b border-slate-200 pb-3">
-                <Linha label="Para" valor="contabilidade@vidamed.com" />
+                <Linha label="Para" valor="contabilidade@vidamedgestao.com.br" />
                 <Linha label="Cc" valor="financeiro@vidamedgestao.com.br" />
                 <Linha
                   label="Assunto"
-                  valor={`[VIDAMED] Solicitação de NF - ${instituicao?.nome} - ${competenciaLabel(competencia)}`}
+                  valor={`[Vidamed] Solicitação de NF - ${instituicao?.nome} - ${competenciaLabel(competencia)}`}
                   bold
                 />
               </div>
@@ -440,8 +440,8 @@ function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais,
                 </p>
 
                 <p>Atenciosamente,<br />
-                  <strong>Equipe VIDAMED — Financeiro</strong><br />
-                  relacionamentomedico@vidamed.com</p>
+                  <strong>Equipe Vidamed — Financeiro</strong><br />
+                  relacionamentomedico@vidamedgestao.com.br</p>
               </div>
             </div>
           )}

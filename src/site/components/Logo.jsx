@@ -1,7 +1,7 @@
 export default function Logo({ size = 36, variant = 'dark', iconOnly = false }) {
   // iconOnly: renderiza apenas o "V" em SVG (para usos compactos)
   if (iconOnly) {
-    const colorRight = variant === 'light' ? '#FFFFFF' : '#003869'
+    const colorRight = variant === 'light' ? '#FFFFFF' : '#003768'
     return (
       <svg
         width={size}

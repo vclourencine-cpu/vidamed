@@ -57,7 +57,7 @@ export default function Login() {
           </h2>
           <p className="mt-4 max-w-md text-white/75">
             Plataforma interna para gestão de médicos, lançamentos financeiros e
-            acompanhamento estratégico da VIDAMED.
+            acompanhamento estratégico da Vidamed.
           </p>
         </div>
         <Link to="/" className="relative inline-flex items-center gap-2 text-sm text-white/70 hover:text-white">
@@ -78,7 +78,7 @@ export default function Login() {
 
           <h1 className="font-display text-3xl font-bold text-brand">Bem-vindo de volta</h1>
           <p className="mt-2 text-sm text-slate-600">
-            Acesse a plataforma de gestão VIDAMED
+            Acesse a plataforma de gestão Vidamed
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4">

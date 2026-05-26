@@ -13,7 +13,7 @@ const SOLUCOES = [
   },
   {
     icon: GraduationCap,
-    titulo: 'Clube de Treinamentos VIDAMED',
+    titulo: 'Clube de Treinamentos Vidamed',
     texto: 'Acesso exclusivo a cronograma anual de treinamentos presenciais em Urgência, Emergência e UTI.',
     destaque: true
   },

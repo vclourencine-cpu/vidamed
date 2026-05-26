@@ -49,7 +49,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/5581986563840?text=Olá!%20Quero%20me%20associar%20à%20VIDAMED"
+              href="https://wa.me/5582981908945?text=Olá!%20Quero%20me%20associar%20à%20Vidamed"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-accent"
@@ -85,7 +85,7 @@ export default function Hero() {
               <div className="aspect-[4/5] w-full overflow-hidden bg-brand-dark">
                 <img
                   src={FOTO_HERO}
-                  alt="Médica VIDAMED em ambiente profissional"
+                  alt="Médico parceiro Vidamed em ambiente clínico"
                   className="h-full w-full object-cover"
                   loading="eager"
                 />

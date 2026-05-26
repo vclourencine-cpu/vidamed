@@ -33,7 +33,7 @@ export default function PorQueEscolher() {
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Por que escolher a VIDAMED
+            Por que escolher a Vidamed
           </span>
           <h2 className="section-title mt-3">
             Quatro pilares que sustentam a sua tranquilidade.

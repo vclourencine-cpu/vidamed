@@ -5,7 +5,7 @@ const PASSOS = [
     num: '01',
     icon: MessageCircle,
     titulo: 'Contato com o Relacionamento',
-    texto: 'Entre em contato com a equipe VIDAMED via WhatsApp ou e-mail.'
+    texto: 'Entre em contato com a equipe Vidamed via WhatsApp ou e-mail.'
   },
   {
     num: '02',
@@ -41,7 +41,7 @@ export default function PassoAPasso() {
             Como se associar
           </span>
           <h2 className="font-display text-3xl font-bold sm:text-4xl mt-3">
-            Em 4 passos simples você está dentro da VIDAMED.
+            Em 4 passos simples você está dentro da Vidamed.
           </h2>
         </div>
 
@@ -67,7 +67,7 @@ export default function PassoAPasso() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="https://wa.me/5581986563840?text=Olá!%20Quero%20iniciar%20meu%20cadastro%20na%20VIDAMED"
+            href="https://wa.me/5582981908945?text=Olá!%20Quero%20iniciar%20meu%20cadastro%20na%20Vidamed"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-accent text-base"

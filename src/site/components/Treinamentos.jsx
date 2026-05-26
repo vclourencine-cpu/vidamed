@@ -15,7 +15,7 @@ export default function Treinamentos() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Clube de Treinamentos VIDAMED
+              Clube de Treinamentos Vidamed
             </span>
             <h2 className="section-title mt-3">
               Cronograma anual exclusivo. Encontros mensais. Médico melhor preparado.

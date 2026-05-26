@@ -1,3 +1,6 @@
+// Nota: as cores abaixo representam a identidade visual de cada instituição parceira
+// (Hapvida = vermelho, Unimed = verde, Santa Casa = laranja etc.) — uso intencional
+// para facilitar o reconhecimento visual no dashboard. Não são cores da marca Vidamed.
 export const INSTITUICOES = [
   { id: 'hapvida', nome: 'HAPVIDA', cnpj: '63.554.067/0001-98', razaoSocial: 'HAPVIDA ASSISTENCIA MEDICA LTDA', cor: '#e11d48' },
   { id: 'telemedicina_hapvida', nome: 'TELEMEDICINA HAPVIDA', cnpj: '63.554.067/0001-98', razaoSocial: 'HAPVIDA ASSISTENCIA MEDICA LTDA', cor: '#f43f5e' },

@@ -83,7 +83,7 @@ export default function MedicoForm() {
           <p className="mt-1 text-sm text-slate-600">
             {isEdicao
               ? `Atualizando o cadastro de ${medicoExistente.nome}`
-              : 'Preencha os dados do médico para cadastrá-lo na VIDAMED'}
+              : 'Preencha os dados do médico para cadastrá-lo na Vidamed'}
           </p>
         </div>
       </div>

@@ -34,7 +34,7 @@ const PLANOS = [
       'Apoio no início da atuação profissional',
       'Estruturação segura para entrada no mercado',
       'Acesso ao Clube de Treinamentos',
-      'Suporte da equipe VIDAMED'
+      'Suporte da equipe Vidamed'
     ]
   }
 ]
@@ -128,7 +128,7 @@ export default function Planos() {
               </ul>
 
               <a
-                href={`https://wa.me/5581986563840?text=Olá!%20Tenho%20interesse%20no%20plano%20${encodeURIComponent(p.nome)}`}
+                href={`https://wa.me/5582981908945?text=Olá!%20Tenho%20interesse%20no%20plano%20${encodeURIComponent(p.nome)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition ${
@@ -137,7 +137,7 @@ export default function Planos() {
                     : 'border border-brand bg-white text-brand hover:bg-brand hover:text-white'
                 }`}
               >
-                Quero esse plano
+                Quero ser médico Vidamed
                 <ArrowRight size={16} />
               </a>
             </div>

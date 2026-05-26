@@ -12,7 +12,7 @@ export default function QuemSomos() {
             Mais do que cuidar de números, cuidamos da estrutura que sustenta sua vida médica.
           </h2>
           <p className="section-subtitle">
-            A VIDAMED é uma empresa especializada em gestão administrativa, financeira
+            A Vidamed é uma empresa especializada em gestão administrativa, financeira
             e estratégica para médicos, criada para simplificar a rotina profissional,
             garantir segurança financeira e apoiar decisões conscientes ao longo da carreira.
           </p>
@@ -45,7 +45,7 @@ export default function QuemSomos() {
               "Cuidamos de quem cuida, com visão, inteligência e proximidade."
             </p>
             <p className="mt-3 text-xs font-medium uppercase tracking-wider text-accent-light">
-              Manifesto VIDAMED
+              Manifesto Vidamed
             </p>
           </div>
         </div>
