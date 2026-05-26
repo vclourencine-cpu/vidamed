@@ -67,9 +67,9 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-3 sm:max-w-md">
-            <Stat icon={<TrendingUp size={20} />} label="Faturamento" value="+previsibilidade" />
-            <Stat icon={<ShieldCheck size={20} />} label="Tributos" value="100% gerido" />
-            <Stat icon={<MapPin size={20} />} label="Cobertura" value="Brasil todo" />
+            <Stat icon={<TrendingUp size={20} />} label="Médicos ativos" value="40+ parceiros" />
+            <Stat icon={<ShieldCheck size={20} />} label="Volume gerido" value="R$ 250k/mês" />
+            <Stat icon={<MapPin size={20} />} label="Cobertura" value="Todo o país" />
           </div>
         </div>
 
@@ -95,59 +95,38 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Card flutuante: PIX caiu */}
-            <div className="absolute -left-4 top-8 hidden w-56 rounded-2xl bg-white p-3 shadow-2xl sm:flex">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white">
-                  <Wallet size={20} />
+            {/* Card flutuante: PIX caiu — canto sup esq, menor */}
+            <div className="absolute -left-3 top-6 hidden w-48 rounded-xl bg-white p-2.5 shadow-2xl sm:flex">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-white">
+                  <Wallet size={16} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                  <p className="text-[9px] font-semibold uppercase tracking-wider text-slate-500">
                     PIX recebido
                   </p>
-                  <p className="font-display text-base font-bold text-brand">
-                    R$ 26.820,00
-                  </p>
-                  <p className="text-[10px] text-slate-500">há poucos minutos</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card flutuante: tributos OK */}
-            <div className="absolute -right-4 top-1/3 hidden w-52 rounded-2xl bg-white p-3 shadow-2xl sm:flex">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white">
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-                    Tributos do mês
-                  </p>
                   <p className="font-display text-sm font-bold text-brand">
-                    100% pagos
+                    R$ 26.820
                   </p>
-                  <p className="text-[10px] text-emerald-600">
-                    <CheckCircle2 size={9} className="-mt-0.5 mr-0.5 inline" />
-                    em dia
-                  </p>
+                  <p className="text-[9px] text-slate-500">há instantes</p>
                 </div>
               </div>
             </div>
 
-            {/* Card flutuante: KPI */}
-            <div className="absolute -bottom-6 left-6 hidden w-60 rounded-2xl bg-white p-3 shadow-2xl sm:flex">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                  <TrendingUp size={20} />
+            {/* Card flutuante: KPI — canto inf dir, menor (longe do rosto) */}
+            <div className="absolute -bottom-4 -right-2 hidden w-52 rounded-xl bg-white p-2.5 shadow-2xl sm:flex">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">
+                  <TrendingUp size={16} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                  <p className="text-[9px] font-semibold uppercase tracking-wider text-slate-500">
                     Faturamento maio
                   </p>
-                  <p className="font-display text-base font-bold text-brand">
+                  <p className="font-display text-sm font-bold text-brand">
                     R$ 114.396
                   </p>
-                  <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-600">
+                  <div className="flex items-center gap-1 text-[9px] font-bold text-emerald-600">
                     <Sparkles size={9} />
                     +40,3% vs abril
                   </div>

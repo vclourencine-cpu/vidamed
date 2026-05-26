@@ -3,7 +3,7 @@ import { ArrowLeft, Edit, Phone, Mail, MapPin, CreditCard, FileCheck, Calendar, 
 import { getMedico } from '../../data/medicos'
 import { PAGAMENTOS_SEED } from '../../data/pagamentos'
 import { getInstituicao } from '../../data/instituicoes'
-import { formatBRL, formatDate, competenciaLabel } from '../../lib/storage'
+import { formatBRL, formatDate, competenciaLabel, toTitleCase } from '../../lib/storage'
 import { getSession } from '../../lib/auth'
 
 const DOCS_LABELS = {
@@ -59,7 +59,7 @@ export default function MedicoDetalhe() {
                 {medico.status}
               </span>
               <h1 className="mt-1 font-display text-2xl font-bold text-brand sm:text-3xl">
-                {medico.nome}
+                {toTitleCase(medico.nome)}
               </h1>
               <p className="text-sm text-slate-600">
                 {medico.especialidade} · CRM {medico.crm}

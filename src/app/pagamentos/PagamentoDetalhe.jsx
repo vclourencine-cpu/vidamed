@@ -7,7 +7,7 @@ import {
 import { PAGAMENTOS_SEED } from '../../data/pagamentos'
 import { getInstituicao } from '../../data/instituicoes'
 import { getMedico } from '../../data/medicos'
-import { formatBRL, formatDate, formatDateTime, competenciaLabel } from '../../lib/storage'
+import { formatBRL, formatDate, formatDateTime, competenciaLabel, toTitleCase } from '../../lib/storage'
 import { getSession } from '../../lib/auth'
 
 const STATUS_LABEL = {
@@ -181,7 +181,7 @@ export default function PagamentoDetalhe() {
                     <td className="px-4 py-3 font-mono text-xs text-slate-500">{i + 1}</td>
                     <td className="px-4 py-3">
                       <Link to={`/app/medicos/${m?.id}`} className="font-semibold text-slate-800 hover:text-brand">
-                        {m?.nome}
+                        {toTitleCase(m?.nome)}
                       </Link>
                       <p className="text-xs text-slate-500">CRM {m?.crm} · {m?.cpf}</p>
                     </td>

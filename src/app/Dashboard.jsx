@@ -7,7 +7,7 @@ import {
 import { PAGAMENTOS_SEED, agregarPorCompetencia, variacao } from '../data/pagamentos'
 import { MEDICOS_SEED, getMedico } from '../data/medicos'
 import { INSTITUICOES, getInstituicao } from '../data/instituicoes'
-import { formatBRL, formatPercent, competenciaLabel, formatDate } from '../lib/storage'
+import { formatBRL, formatPercent, competenciaLabel, formatDate, toTitleCase } from '../lib/storage'
 import { getSession } from '../lib/auth'
 
 const COMPETENCIA_ATUAL = '2026-05'
@@ -78,7 +78,39 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* KPIs Cards principais */}
+      {/* Banner de pendências (acima dos KPIs) */}
+      {lancamentosPendentes.length > 0 ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+              <AlertCircle size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-amber-700">Pendências</p>
+              <p className="text-sm font-semibold text-amber-900">
+                {lancamentosPendentes.length} {lancamentosPendentes.length === 1 ? 'lançamento aguardando' : 'lançamentos aguardando'} emissão de nota
+              </p>
+            </div>
+          </div>
+          {isAdmin && (
+            <Link to="/app/pagamentos" className="inline-flex items-center gap-1 rounded-full bg-amber-700 px-4 py-2 text-xs font-semibold text-white hover:bg-amber-800">
+              Resolver agora <ArrowRight size={12} />
+            </Link>
+          )}
+        </div>
+      ) : (
+        <div className="flex items-center gap-3 rounded-2xl bg-emerald-50 p-4 ring-1 ring-emerald-200">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+            <AlertCircle size={20} />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Tudo em dia</p>
+            <p className="text-sm font-semibold text-emerald-900">Nenhuma pendência operacional no momento.</p>
+          </div>
+        </div>
+      )}
+
+      {/* KPIs principais — grid 3+2 simétrico, faturamento bruto em destaque */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <KPICard
           titulo="Faturamento bruto"
@@ -102,6 +134,9 @@ export default function Dashboard() {
           referencia={formatBRL(anterior.taxaAdm)}
           icon={Receipt}
         />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
         <KPICard
           titulo="Médicos ativos no mês"
           valor={atual.medicosAtivos.toString()}
@@ -117,34 +152,6 @@ export default function Dashboard() {
           referencia={`${PAGAMENTOS_SEED.filter(p => p.competencia === COMPETENCIA_ATUAL).length} lançamentos`}
           icon={AlertCircle}
         />
-
-        {/* Alerta pendências */}
-        <div className={`rounded-2xl p-5 shadow-soft ring-1 ${
-          lancamentosPendentes.length > 0
-            ? 'bg-amber-50 ring-amber-200'
-            : 'bg-emerald-50 ring-emerald-200'
-        }`}>
-          <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-700">
-              {lancamentosPendentes.length > 0 ? 'Pendências' : 'Tudo em dia'}
-            </p>
-            <AlertCircle size={18} className={lancamentosPendentes.length > 0 ? 'text-amber-600' : 'text-emerald-600'} />
-          </div>
-          <p className="mt-3 font-display text-3xl font-bold text-brand">
-            {lancamentosPendentes.length}
-          </p>
-          <p className="mt-1 text-xs text-slate-600">
-            {lancamentosPendentes.length > 0
-              ? 'lançamentos aguardando emissão de nota'
-              : 'nenhuma pendência operacional'}
-          </p>
-          {isAdmin && lancamentosPendentes.length > 0 && (
-            <Link to="/app/pagamentos" className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand hover:text-accent">
-              Ver lançamentos
-              <ArrowRight size={12} />
-            </Link>
-          )}
-        </div>
       </div>
 
       {/* Top 5 médicos */}
@@ -249,13 +256,13 @@ function KPICard({ titulo, valor, variacao, referencia, icon: Icon, accent, isNu
       <p className={`relative mt-3 font-display text-3xl font-bold ${accent ? 'text-white' : 'text-brand'}`}>
         {valor}
       </p>
-      <div className="relative mt-2 flex items-center gap-2">
-        <span className={`inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 text-xs font-bold ${
+      <div className="relative mt-3 flex items-center gap-2">
+        <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-sm font-bold ${
           positiva
             ? (accent ? 'bg-accent-light/20 text-accent-light' : 'bg-emerald-100 text-emerald-700')
             : (accent ? 'bg-red-500/20 text-red-200' : 'bg-red-100 text-red-700')
         }`}>
-          {positiva ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
+          {positiva ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
           {formatPercent(variacao)}
         </span>
         <span className={`text-xs ${accent ? 'text-white/60' : 'text-slate-500'}`}>
@@ -284,7 +291,7 @@ function RankItem({ posicao, medico, total, maior }) {
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2">
-            <p className="truncate text-sm font-semibold text-slate-800">{medico.nome}</p>
+            <p className="truncate text-sm font-semibold text-slate-800">{toTitleCase(medico.nome)}</p>
             <p className="font-mono text-sm font-bold text-brand">{formatBRL(total)}</p>
           </div>
           <div className="mt-1 flex items-center gap-2">

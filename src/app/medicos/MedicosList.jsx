@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { Search, Plus, Filter, FileText, Phone, Mail, MoreVertical, CheckCircle2 } from 'lucide-react'
 import { MEDICOS_SEED } from '../../data/medicos'
 import { getSession } from '../../lib/auth'
-import { formatDate } from '../../lib/storage'
+import { formatDate, toTitleCase } from '../../lib/storage'
+import { useNavigate } from 'react-router-dom'
 
 export default function MedicosList() {
   const session = getSession()
+  const navigate = useNavigate()
   const isAdmin = session?.perfil === 'admin'
   const [busca, setBusca] = useState('')
   const [filtroStatus, setFiltroStatus] = useState('todos')
@@ -106,18 +108,19 @@ export default function MedicosList() {
               {medicosFiltrados.map((m) => (
                 <tr
                   key={m.id}
-                  className="border-b border-slate-50 transition hover:bg-slate-50/50"
+                  onClick={() => navigate(`/app/medicos/${m.id}`)}
+                  className="cursor-pointer border-b border-slate-50 transition hover:bg-brand-50/60"
                 >
                   <td className="px-4 py-3">
-                    <Link to={`/app/medicos/${m.id}`} className="flex items-center gap-3 hover:text-brand">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">
-                        {m.nome.split(' ').map(n => n[0]).slice(0, 2).join('')}
+                        {toTitleCase(m.nome).split(' ').filter(w => w.length > 2).map(n => n[0]).slice(0, 2).join('')}
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-800">{m.nome}</p>
+                        <p className="font-semibold text-slate-800">{toTitleCase(m.nome)}</p>
                         <p className="text-xs text-slate-500">{m.cpf}</p>
                       </div>
-                    </Link>
+                    </div>
                   </td>
                   <td className="px-4 py-3 font-mono text-xs text-slate-600">{m.crm}</td>
                   <td className="px-4 py-3 text-slate-600">{m.especialidade}</td>
@@ -145,13 +148,10 @@ export default function MedicosList() {
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <Link
-                      to={`/app/medicos/${m.id}`}
-                      className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-brand hover:text-white"
-                    >
+                    <span className="inline-flex items-center gap-1 rounded-lg bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent transition group-hover:bg-accent group-hover:text-white">
                       <FileText size={12} />
-                      Ver
-                    </Link>
+                      Abrir ficha
+                    </span>
                   </td>
                 </tr>
               ))}

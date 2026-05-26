@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import { INSTITUICOES, getInstituicao } from '../../data/instituicoes'
 import { MEDICOS_SEED, getMedico } from '../../data/medicos'
-import { formatBRL, competenciaLabel } from '../../lib/storage'
+import { formatBRL, competenciaLabel, toTitleCase } from '../../lib/storage'
 
 export default function PagamentoLancar() {
   const navigate = useNavigate()
@@ -176,7 +176,7 @@ export default function PagamentoLancar() {
                       >
                         <option value="">Selecione...</option>
                         {MEDICOS_SEED.map(m => (
-                          <option key={m.id} value={m.id}>{m.nome} ({m.crm})</option>
+                          <option key={m.id} value={m.id}>{toTitleCase(m.nome)} ({m.crm})</option>
                         ))}
                       </select>
                     </div>
@@ -329,7 +329,7 @@ function Total({ label, valor, cor, destaque }) {
 function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais, enviando, confirmado, onConfirmar, onFechar }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div className="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-100 bg-gradient-to-r from-brand to-brand-dark p-5 text-white">
           <div className="flex items-center gap-3">
@@ -356,7 +356,7 @@ function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais,
         </div>
 
         {/* Conteúdo */}
-        <div className="max-h-[60vh] overflow-y-auto p-5">
+        <div className="flex-1 overflow-y-auto p-5">
           {confirmado ? (
             <div className="flex flex-col items-center justify-center py-8 text-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100">
@@ -416,7 +416,7 @@ function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais,
                         return (
                           <tr key={i} className="border-b border-slate-100 last:border-0">
                             <td className="px-2 py-1.5">
-                              <p className="font-semibold">{m?.nome}</p>
+                              <p className="font-semibold">{toTitleCase(m?.nome)}</p>
                               <p className="text-slate-500">{m?.cpf}</p>
                             </td>
                             <td className="px-2 py-1.5 text-right">{formatBRL(r)}</td>
@@ -447,9 +447,9 @@ function ModalEmail({ instituicao, competencia, notaNumero, lancamentos, totais,
           )}
         </div>
 
-        {/* Footer */}
+        {/* Footer fixo */}
         {!confirmado && (
-          <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/50 p-4">
+          <div className="flex flex-shrink-0 items-center justify-between border-t border-slate-100 bg-slate-50/50 p-4">
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <AlertCircle size={14} />
               <span>Mockup: o e-mail não será realmente enviado.</span>

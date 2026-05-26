@@ -41,6 +41,24 @@ export const formatDateTime = (iso) => {
   return d.toLocaleString('pt-BR')
 }
 
+// Converte "JACKSON MENEZES SILVA" → "Jackson Menezes Silva".
+// Mantém preposições em minúsculo e siglas comuns em maiúsculo.
+const STOPWORDS = new Set(['da', 'de', 'do', 'das', 'dos', 'e'])
+const KEEP_CAPS = new Set(['CRM', 'CPF', 'RG', 'PIX', 'UTI', 'SP', 'AL', 'RJ', 'PE', 'BA', 'MG'])
+export const toTitleCase = (str) => {
+  if (!str) return ''
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map((w, i) => {
+      const up = w.toUpperCase()
+      if (KEEP_CAPS.has(up)) return up
+      if (i > 0 && STOPWORDS.has(w)) return w
+      return w.charAt(0).toUpperCase() + w.slice(1)
+    })
+    .join(' ')
+}
+
 export const competenciaLabel = (c) => {
   if (!c) return ''
   const [ano, mes] = c.split('-')

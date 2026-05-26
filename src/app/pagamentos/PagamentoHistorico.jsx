@@ -125,63 +125,55 @@ export default function PagamentoHistorico() {
             <Link
               key={p.id}
               to={`/app/pagamentos/${p.id}`}
-              className="block rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-card"
+              className="block rounded-2xl bg-white p-4 shadow-soft ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-card"
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="flex items-start gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex min-w-0 items-center gap-3">
                   <div
                     className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-white"
                     style={{ backgroundColor: inst?.cor }}
                   >
                     <FileText size={18} />
                   </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-display text-base font-bold text-brand">
-                        {inst?.nome}
-                      </h3>
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-x-2">
+                      <h3 className="font-display text-base font-bold text-brand">{inst?.nome}</h3>
                       <span className="text-xs text-slate-500">· Nota {p.notaNumero}</span>
-                    </div>
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                      <span>{competenciaLabel(p.competencia)}</span>
-                      <span>·</span>
-                      <span>{p.lancamentos.length} {p.lancamentos.length === 1 ? 'médico' : 'médicos'}</span>
-                      {p.dataPagamento && (
-                        <>
-                          <span>·</span>
-                          <span>Pago em {formatDate(p.dataPagamento)}</span>
-                        </>
-                      )}
+                      <span className="text-xs text-slate-500">· {competenciaLabel(p.competencia)}</span>
+                      <span className="text-xs text-slate-500">· {p.lancamentos.length} {p.lancamentos.length === 1 ? 'médico' : 'médicos'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-2">
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${statusInfo.cor}`}>
-                    <statusInfo.icon size={10} />
-                    {statusInfo.label}
-                  </span>
-                  {p.emailEnviado && (
-                    <span className="inline-flex items-center gap-1 text-[10px] text-slate-500">
-                      <Mail size={10} />
-                      Contabilidade notificada
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-wider text-slate-500">Bruto</p>
+                    <p className="font-mono text-sm font-bold text-slate-700">{formatBRL(totalBruto)}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-wider text-slate-500">Líquido</p>
+                    <p className="font-mono text-sm font-bold text-emerald-700">{formatBRL(totalLiquido)}</p>
+                  </div>
+                  <div className="flex flex-col items-end gap-1 border-l border-slate-100 pl-3">
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${statusInfo.cor}`}>
+                      <statusInfo.icon size={10} />
+                      {statusInfo.label}
                     </span>
-                  )}
+                    {p.emailEnviado && (
+                      <span className="inline-flex items-center gap-1 text-[10px] text-slate-500">
+                        <Mail size={10} />
+                        Notificada
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-t border-slate-100 pt-3">
-                <div className="flex flex-wrap gap-6 text-xs">
-                  <div>
-                    <p className="text-slate-500">Bruto</p>
-                    <p className="font-mono text-sm font-bold text-slate-700">{formatBRL(totalBruto)}</p>
-                  </div>
-                  <div>
-                    <p className="text-slate-500">Líquido</p>
-                    <p className="font-mono text-sm font-bold text-emerald-700">{formatBRL(totalLiquido)}</p>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand">
+              <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                {p.dataPagamento && (
+                  <span>Pago em {formatDate(p.dataPagamento)} · </span>
+                )}
+                <span className="inline-flex items-center gap-1 font-semibold text-brand">
                   Ver detalhes
                   <ArrowRight size={12} />
                 </span>

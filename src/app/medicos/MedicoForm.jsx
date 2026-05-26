@@ -5,6 +5,7 @@ import {
   CheckCircle2, X, Save, FileCheck, AlertCircle
 } from 'lucide-react'
 import { getMedico } from '../../data/medicos'
+import { toTitleCase } from '../../lib/storage'
 
 const DOCS = [
   { key: 'rg_cnh', label: 'RG ou CNH', aceito: 'PDF, JPG, PNG (máx. 5MB)' },
@@ -82,7 +83,7 @@ export default function MedicoForm() {
           </h1>
           <p className="mt-1 text-sm text-slate-600">
             {isEdicao
-              ? `Atualizando o cadastro de ${medicoExistente.nome}`
+              ? `Atualizando o cadastro de ${toTitleCase(medicoExistente.nome)}`
               : 'Preencha os dados do médico para cadastrá-lo na Vidamed'}
           </p>
         </div>
