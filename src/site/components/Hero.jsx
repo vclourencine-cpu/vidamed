@@ -9,7 +9,11 @@ const FOTO_HERO = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand to-brand-dark pt-20 text-white">
+    <section
+      id="top"
+      className="relative overflow-hidden pt-20 text-white"
+      style={{ backgroundColor: '#003768' }}
+    >
       {/* Brilho de fundo */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />

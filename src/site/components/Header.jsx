@@ -21,13 +21,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Header sempre escuro (cor da marca) — apenas adiciona blur/sombra após rolagem
+  // Header sempre na cor exata do fundo do logo (#003768) — apenas sombra ao rolar
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      scrolled
-        ? 'bg-brand-dark/95 shadow-card backdrop-blur'
-        : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? 'shadow-card' : ''
+      }`}
+      style={{ backgroundColor: '#003768' }}
+    >
       <div className="container-x flex h-16 items-center justify-between sm:h-20">
         <a href="#top" className="flex items-center">
           <Logo size={36} variant="light" />
