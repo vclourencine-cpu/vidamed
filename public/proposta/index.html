@@ -254,32 +254,9 @@
           <div>
             <h3 class="font-bold text-brand display">65h/mês em lançamentos manuais</h3>
             <p class="mt-1 text-xs text-slate-500">130 médicos × ~30min por nota processada em planilha</p>
-            <p class="mt-3 font-mono text-lg font-bold text-red-700">≈ R$ 2.600/mês</p>
-            <p class="text-[10px] text-slate-500">em hora-equipe alocada à operação repetitiva</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200">
-        <div class="flex items-start gap-3">
-          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600 text-xl">⚠️</div>
-          <div>
-            <h3 class="font-bold text-brand display">Risco de erro fiscal não rastreado</h3>
-            <p class="mt-1 text-xs text-slate-500">Sem template padronizado, multa típica de IR mal calculado</p>
-            <p class="mt-3 font-mono text-lg font-bold text-red-700">R$ 5.000 – R$ 30.000</p>
-            <p class="text-[10px] text-slate-500">por evento de inconsistência fiscal não detectada</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200">
-        <div class="flex items-start gap-3">
-          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-purple-100 text-purple-600 text-xl">😞</div>
-          <div>
-            <h3 class="font-bold text-brand display">Churn por experiência burocrática</h3>
-            <p class="mt-1 text-xs text-slate-500">Médico mal atendido sai. LTV médio de 24 meses perdido por saída.</p>
-            <p class="mt-3 font-mono text-lg font-bold text-red-700">≈ R$ 38.880</p>
-            <p class="text-[10px] text-slate-500">de LTV perdido a cada médico que deixa a Vidamed</p>
+            <p class="mt-3 font-mono text-lg font-bold text-red-700">≈ 8 dias úteis/mês</p>
+            <p class="text-[10px] text-slate-500">em retrabalho operacional repetitivo</p>
+            <p class="mt-3 text-xs italic text-brand">💡 Quanto vale a hora da sua equipe? × 65</p>
           </div>
         </div>
       </div>
@@ -297,19 +274,21 @@
       </div>
     </div>
 
-    <!-- TOTAL DO CUSTO INVISÍVEL -->
+    <!-- RESUMO CENÁRIO SEM MUDANÇA -->
     <div class="mt-8 rounded-3xl bg-gradient-to-br from-red-600 to-red-800 text-white p-6 sm:p-8 shadow-xl2">
       <div class="grid sm:grid-cols-[1fr_auto] gap-6 items-center">
         <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-red-200">Custo invisível total</p>
-          <p class="mt-2 display text-3xl sm:text-4xl font-extrabold">R$ 3.000 – R$ 8.000 / mês</p>
-          <p class="mt-2 text-sm text-red-100">
-            Entre R$ 36.000 e R$ 96.000 por ano sendo desperdiçados em operação manual, retrabalho, erros e oportunidades perdidas. <strong>Sem aparecer no balanço.</strong>
+          <p class="text-xs font-bold uppercase tracking-widest text-red-200">Cenário sem mudança</p>
+          <p class="mt-2 display text-2xl sm:text-3xl font-extrabold leading-tight">
+            ≈ 8 dias úteis/mês em operação repetitiva<br/>
+            + ~10 médicos potenciais não capturados
+          </p>
+          <p class="mt-3 text-sm text-red-100">
+            <strong>Sem aparecer no balanço</strong> — mas drenando capacidade da equipe e receita futura, todos os meses.
           </p>
         </div>
         <div class="text-center sm:text-right">
-          <p class="text-xs uppercase tracking-widest text-red-200">Cenário sem mudança</p>
-          <p class="mt-1 display text-5xl font-extrabold text-white">📉</p>
+          <p class="display text-5xl font-extrabold text-white">📉</p>
         </div>
       </div>
     </div>
@@ -378,6 +357,110 @@
         🔗 Navegar pelo demo ao vivo
       </a>
       <p class="mt-3 text-xs text-white/60">Login de teste: <code class="bg-white/10 px-2 py-0.5 rounded">financeiro@vidamedgestao.com.br</code></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ÂNCORA NOVA: COMPARAÇÃO COM AGÊNCIA -->
+<section class="relative overflow-hidden py-20 bg-gradient-to-br from-slate-50 via-white to-amber-50/30">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -left-10 top-10 h-72 w-72 rounded-full" style="background: rgba(245,158,11,.06); filter: blur(80px);"></div>
+  </div>
+
+  <div class="container-x relative reveal">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full bg-amber-100 text-amber-800 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
+        💼 Para efeito de comparação
+      </div>
+      <h2 class="mt-4 display text-3xl sm:text-4xl font-bold text-brand">
+        Quanto esse mesmo projeto custaria em uma <span class="text-accent">agência tradicional</span>?
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Antes de ver o investimento desta proposta, vale comparar com as opções típicas do mercado para um projeto de mesma complexidade — site institucional + plataforma SaaS B2B com automações.
+      </p>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-3 gap-5">
+      <!-- Agência Boutique -->
+      <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏢</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Opção 1</p>
+            <h3 class="font-display font-bold text-brand">Agência boutique</h3>
+            <p class="text-xs text-slate-500">São Paulo / Rio de Janeiro</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="font-mono text-2xl font-extrabold text-red-700">R$ 60.000 – R$ 120.000</p>
+          <p class="text-xs text-slate-500 mt-1">Prazo típico: <strong>4 a 6 meses</strong></p>
+        </div>
+        <ul class="mt-5 space-y-2 text-xs text-slate-600">
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Time de 4-6 pessoas envolvido</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Reuniões semanais de alinhamento</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Documentação pesada e formal</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Overhead corporativo no preço</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Curva de aprendizado do negócio</li>
+        </ul>
+      </div>
+
+      <!-- Agência Regional -->
+      <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏬</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Opção 2</p>
+            <h3 class="font-display font-bold text-brand">Agência regional média</h3>
+            <p class="text-xs text-slate-500">Maceió / Nordeste</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="font-mono text-2xl font-extrabold text-amber-700">R$ 25.000 – R$ 50.000</p>
+          <p class="text-xs text-slate-500 mt-1">Prazo típico: <strong>3 a 4 meses</strong></p>
+        </div>
+        <ul class="mt-5 space-y-2 text-xs text-slate-600">
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Time de 2-3 pessoas envolvido</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Atendimento via gerente de projeto</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Curva de aprendizado do nicho médico</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Burocracia média</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Manutenção pós-entrega cobrada à parte</li>
+        </ul>
+      </div>
+
+      <!-- Vidamed (destaque) -->
+      <div class="rounded-2xl bg-gradient-to-br from-brand to-brand-dark text-white p-6 ring-2 ring-accent shadow-xl2 relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full" style="background: rgba(0,158,61,.3); filter: blur(50px);"></div>
+        <div class="absolute -top-3 left-6 bg-accent text-white text-[10px] font-bold uppercase tracking-widest rounded-full px-3 py-1">⭐ Esta proposta</div>
+        <div class="relative flex items-center gap-2 mt-3">
+          <span class="text-2xl">✨</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">Opção 3</p>
+            <h3 class="font-display font-bold text-white">Vidamed × Victor Chastinet</h3>
+            <p class="text-xs text-white/70">Atendimento direto, sem intermediários</p>
+          </div>
+        </div>
+        <div class="relative mt-5">
+          <p class="font-mono text-2xl font-extrabold text-accent-light">você verá em alguns minutos...</p>
+          <p class="text-xs text-white/70 mt-1">Prazo: <strong class="text-white">4 semanas</strong></p>
+        </div>
+        <ul class="relative mt-5 space-y-2 text-xs text-white/85">
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Atendimento <strong>direto comigo</strong>, sem ruído</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Já estudei a Planilha 2026 e o rebranding</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Sem reaprender o negócio Vidamed</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Sem overhead — você paga produto, não estrutura</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Bônus de mentoria comercial inclusos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-2xl bg-brand-50 border border-brand-100 p-5 sm:p-6 max-w-3xl mx-auto text-center">
+      <p class="text-sm sm:text-base text-brand">
+        💡 <strong>Mesma entrega técnica.</strong> Menos overhead corporativo. <strong>Profundidade real</strong> no contexto da Vidamed.
+      </p>
+      <p class="mt-2 text-xs text-slate-500">
+        Cotações referenciais: pesquisa pública de mercado em agências digitais brasileiras (jul/2026). Variação por região e complexidade.
+      </p>
     </div>
   </div>
 </section>
