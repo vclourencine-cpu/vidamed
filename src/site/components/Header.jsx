@@ -21,13 +21,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Header sempre escuro (cor da marca) — apenas adiciona blur/sombra após rolagem
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      scrolled ? 'bg-white/95 shadow-soft backdrop-blur' : 'bg-transparent'
+      scrolled
+        ? 'bg-brand-dark/95 shadow-card backdrop-blur'
+        : 'bg-transparent'
     }`}>
       <div className="container-x flex h-16 items-center justify-between sm:h-20">
         <a href="#top" className="flex items-center">
-          <Logo size={36} variant={scrolled ? 'dark' : 'light'} />
+          <Logo size={36} variant="light" />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -35,9 +38,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition ${
-                scrolled ? 'text-slate-700 hover:text-brand' : 'text-white/85 hover:text-white'
-              }`}
+              className="text-sm font-medium text-white/85 transition hover:text-white"
             >
               {item.label}
             </a>
@@ -47,11 +48,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             to="/login"
-            className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-soft transition ${
-              scrolled
-                ? 'bg-brand text-white hover:bg-brand-dark'
-                : 'bg-accent text-white hover:bg-accent-light'
-            }`}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-accent-light"
           >
             <LogIn size={16} />
             Acessar plataforma
@@ -59,7 +56,7 @@ export default function Header() {
         </div>
 
         <button
-          className={`lg:hidden ${scrolled ? 'text-slate-700' : 'text-white'}`}
+          className="text-white lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -68,19 +65,19 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-100 bg-white lg:hidden">
+        <div className="border-t border-white/10 bg-brand-dark lg:hidden">
           <div className="container-x flex flex-col gap-4 py-4">
             {NAV.map(item => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base font-medium text-slate-700"
+                className="text-base font-medium text-white/90 hover:text-white"
               >
                 {item.label}
               </a>
             ))}
-            <Link to="/login" className="btn-primary w-full justify-center">
+            <Link to="/login" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white">
               <LogIn size={16} />
               Acessar plataforma
             </Link>
