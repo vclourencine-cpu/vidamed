@@ -9,6 +9,7 @@ import MedicoDetalhe from './app/medicos/MedicoDetalhe'
 import PagamentoLancar from './app/pagamentos/PagamentoLancar'
 import PagamentoHistorico from './app/pagamentos/PagamentoHistorico'
 import PagamentoDetalhe from './app/pagamentos/PagamentoDetalhe'
+import LeadsList from './app/leads/LeadsList'
 import { getSession } from './lib/auth'
 
 function ProtectedRoute({ children }) {
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/app" element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="leads" element={<LeadsList />} />
         <Route path="medicos" element={<MedicosList />} />
         <Route path="medicos/novo" element={<MedicoForm />} />
         <Route path="medicos/:id" element={<MedicoDetalhe />} />

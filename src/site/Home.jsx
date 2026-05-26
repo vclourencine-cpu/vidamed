@@ -7,6 +7,7 @@ import Planos from './components/Planos'
 import Treinamentos from './components/Treinamentos'
 import PorQueEscolher from './components/PorQueEscolher'
 import PassoAPasso from './components/PassoAPasso'
+import QueroConhecer from './components/QueroConhecer'
 import Footer from './components/Footer'
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <Treinamentos />
         <PorQueEscolher />
         <PassoAPasso />
+        <QueroConhecer />
       </main>
       <Footer />
     </div>

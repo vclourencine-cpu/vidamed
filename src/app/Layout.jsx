@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom'
 import {
-  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown
+  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target
 } from 'lucide-react'
 import Logo from '../site/components/Logo'
 import { getSession, logout } from '../lib/auth'
 
 const NAV = [
   { to: '/app/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/app/leads', icon: Target, label: 'Leads' },
   { to: '/app/medicos', icon: Users, label: 'Médicos' },
   { to: '/app/pagamentos', icon: Wallet, label: 'Pagamentos' }
 ]
