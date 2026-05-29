@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Proposta comercial Vidamed — Site institucional + Plataforma de Gestão" />
+<title>[V2] Proposta · Vidamed — Site + Plataforma de Gestão</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#003768', dark: '#002850', light: '#1e5a8f', 50: '#eef4fa', 100: '#d4e3f1', 900: '#001a30' },
+          accent: { DEFAULT: '#009E3D', dark: '#007a2f', light: '#1eb455', 50: '#e8f7ee' },
+          gold: { DEFAULT: '#c9a44c', light: '#e3c878' },
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Manrope', 'Inter', 'sans-serif'] },
+        boxShadow: { soft: '0 2px 20px rgba(0,55,104,.08)', card: '0 8px 32px rgba(0,55,104,.12)', xl2: '0 20px 60px rgba(0,55,104,.18)' },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; background: #fff; color: #0f172a; }
+  .container-x { max-width: 1180px; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 640px) { .container-x { padding: 0 1.5rem; } }
+  @media (min-width: 1024px) { .container-x { padding: 0 2rem; } }
+
+  /* Barra de progresso de scroll */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #009E3D, #1eb455); z-index: 60; width: 0%;
+    transition: width 0.05s linear;
+  }
+
+  /* Animação ao scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease-out, transform .7s ease-out; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Tipografia destaque */
+  .display { font-family: 'Manrope', sans-serif; letter-spacing: -0.02em; }
+
+  /* ===== TOQUE DE LUXÚRIA (V2) ===== */
+  /* Filete dourado premium para divisores de seções-chave */
+  .filete-gold { height: 2px; width: 64px; background: linear-gradient(90deg, #c9a44c, #e3c878); border-radius: 2px; }
+  /* Sombra mais profunda e suave nos cards de destaque */
+  .shadow-lux { box-shadow: 0 24px 70px rgba(0,55,104,.22), 0 4px 12px rgba(0,0,0,.05); }
+  /* Hover elegante em cards */
+  .lift { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+  .lift:hover { transform: translateY(-4px); box-shadow: 0 28px 80px rgba(0,55,104,.20); }
+
+  /* Tag âncora preço */
+  .price-old { position: relative; color: #94a3b8; }
+  .price-old::after { content: ''; position: absolute; left: -4%; right: -4%; top: 52%; height: 2px; background: #ef4444; transform: rotate(-8deg); }
+
+  /* Print friendly */
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white !important; }
+    section { page-break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* Sticky header */
+  .ck { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+</style>
+</head>
+<body>
+
+<!-- Barra de progresso -->
+<div class="scroll-progress" id="bar"></div>
+
+<!-- HEADER STICKY -->
+<header class="no-print fixed top-0 inset-x-0 z-50 ck" style="background-color: rgba(0,55,104,.92);">
+  <div class="container-x flex h-16 items-center justify-between sm:h-20">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="Vidamed" class="h-8 sm:h-10" />
+      <div class="hidden sm:block h-6 w-px bg-white/20"></div>
+      <span class="hidden sm:block text-xs uppercase tracking-widest text-white/60">Proposta Comercial</span>
+    </div>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="https://wa.me/5582981908945?text=Olá!%20Recebi%20a%20proposta%20da%20Vidamed%20e%20gostaria%20de%20conversar" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs sm:text-sm text-white hover:bg-white/10">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.5.2-.7.2-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg>
+        Conversar
+      </a>
+      <a href="#aceite" class="inline-flex items-center gap-2 rounded-full bg-accent px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-soft hover:bg-accent-light">
+        Aceitar proposta →
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden pt-24 sm:pt-32 pb-20" style="background-color:#003768; color:white;">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -left-20 top-20 h-80 w-80 rounded-full" style="background: rgba(0,158,61,.18); filter: blur(80px);"></div>
+    <div class="absolute -right-10 bottom-10 h-96 w-96 rounded-full" style="background: rgba(30,90,143,.3); filter: blur(80px);"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+  </div>
+
+  <div class="container-x relative grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-widest text-white/80">
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-accent"></span>
+        Proposta comercial · Confidencial
+      </div>
+      <div class="filete-gold mt-6"></div>
+      <h1 class="mt-5 display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
+        Vamos construir a <span class="text-accent">vitrine digital</span> e a <span class="text-accent">operação inteligente</span> da Vidamed.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-white/80">
+        Um site institucional que transforma visitantes em médicos associados, uma plataforma de gestão que substitui planilhas por automação real
+        — e como bônus, uma <strong class="text-accent-light">mentoria comercial</strong> para você captar mais médicos.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#investimento" class="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-white shadow-soft hover:bg-accent-light">
+          Ver investimento →
+        </a>
+        <a href="https://vidamed-vinicius.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white hover:text-brand">
+          🔗 Acessar demo
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-3 max-w-md">
+        <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+          <p class="text-2xl font-bold display">04</p>
+          <p class="text-[10px] uppercase tracking-wider text-white/60 mt-1">semanas para go-live</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+          <p class="text-2xl font-bold display">02</p>
+          <p class="text-[10px] uppercase tracking-wider text-white/60 mt-1">perfis de acesso</p>
+        </div>
+        <div class="rounded-xl border border-accent/40 bg-accent/15 p-3">
+          <p class="text-2xl font-bold display text-accent-light">+1</p>
+          <p class="text-[10px] uppercase tracking-wider text-accent-light mt-1">bônus exclusivo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -inset-4 rounded-[2.5rem]" style="background: linear-gradient(135deg, rgba(0,158,61,.3), transparent); filter: blur(40px);"></div>
+      <div class="relative rounded-[2rem] overflow-hidden ring-1 ring-white/10 shadow-2xl">
+        <img src="./img/01-hero.png" alt="Preview do site Vidamed" class="w-full block" />
+      </div>
+      <div class="hidden sm:flex absolute -bottom-4 -left-4 items-center gap-2 rounded-2xl bg-white px-4 py-2 shadow-xl">
+        <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-semibold text-brand">Demo navegável disponível</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card meta proposta -->
+  <div class="container-x relative mt-16">
+    <div class="rounded-2xl bg-white/5 border border-white/10 p-5 sm:p-6 grid sm:grid-cols-4 gap-4">
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Para</p>
+        <p class="mt-1 font-semibold">Vidamed Gestão</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Apresentado por</p>
+        <p class="mt-1 font-semibold">Victor Chastinet Lourencine</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Data</p>
+        <p class="mt-1 font-semibold" id="data-emissao">26 de maio de 2026</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Validade</p>
+        <p class="mt-1 font-semibold text-accent" id="data-validade">26 de junho de 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ENTENDEMOS O MOMENTO -->
+<section class="py-24 bg-white">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Antes de qualquer coisa</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl">
+      Entendemos onde a Vidamed está hoje — e onde pode chegar.
+    </h2>
+    <p class="mt-4 text-slate-600 max-w-2xl">
+      Antes de propor uma solução, escutamos sua operação. Aqui está o que observamos analisando a Planilha 2026, a rotina com Hapvida, Unimed, Santa Casa e o fluxo atual de notas.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-5">
+      <div class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl">📊</div>
+          <div>
+            <h3 class="font-bold text-brand display">130+ médicos gerenciados em planilhas paralelas</h3>
+            <p class="mt-2 text-sm text-slate-600">Cadastros, dados de contato, chave PIX e documentação espalhados entre múltiplas abas e arquivos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl">⏱️</div>
+          <div>
+            <h3 class="font-bold text-brand display">Registro manual em Excel a cada nota</h3>
+            <p class="mt-2 text-sm text-slate-600">Cada nota de Hapvida, Unimed ou Santa Casa exige consolidar valores, calcular impostos e registrar manualmente na planilha — uma operação demorada e propensa a erro.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl">✉️</div>
+          <div>
+            <h3 class="font-bold text-brand display">Envio manual de e-mail à contabilidade</h3>
+            <p class="mt-2 text-sm text-slate-600">Cada solicitação de nota é digitada à mão, sem template padronizado e sem rastreamento. O risco de "esqueci de mandar" cresce a cada mês.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl">🌐</div>
+          <div>
+            <h3 class="font-bold text-brand display">Ainda sem vitrine digital ativa</h3>
+            <p class="mt-2 text-sm text-slate-600">A marca recém-passou por rebranding profissional, mas não existe um site que receba médicos interessados em se associar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-brand-50 border border-brand-100 p-6 sm:p-8">
+      <p class="display text-xl sm:text-2xl font-bold text-brand leading-snug">
+        "A Vidamed entregou identidade e proposta de valor. Agora precisa de <span class="text-accent">presença digital</span> e <span class="text-accent">eficiência operacional</span> à altura."
+      </p>
+      <p class="mt-3 text-sm text-slate-600">— diagnóstico após análise dos materiais de rebranding, portfólio comercial e Planilha 2026.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ÂNCORA 1: CUSTO DO PROBLEMA ATUAL -->
+<section class="relative overflow-hidden py-20 bg-gradient-to-br from-red-50 via-amber-50/30 to-white">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -left-10 top-10 h-72 w-72 rounded-full" style="background: rgba(239,68,68,.08); filter: blur(80px);"></div>
+  </div>
+
+  <div class="container-x relative reveal">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full bg-red-100 text-red-700 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
+        ⚠️ Custo invisível
+      </div>
+      <h2 class="mt-4 display text-3xl sm:text-4xl font-bold text-brand">
+        Quanto a operação atual está custando — sem você perceber.
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Antes de falar de investimento, vale entender o que <strong>já está sendo gasto</strong> hoje só pra manter o status quo. Os números abaixo são estimativas conservadoras a partir da Planilha 2026 e dos 130+ médicos parceiros.
+      </p>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-red-100 text-red-600 text-xl">⏱️</div>
+          <div>
+            <h3 class="font-bold text-brand display">65h/mês em lançamentos manuais</h3>
+            <p class="mt-1 text-xs text-slate-500">130 médicos × ~30min por nota processada em planilha</p>
+            <p class="mt-3 font-mono text-lg font-bold text-red-700">≈ 8 dias úteis/mês</p>
+            <p class="text-[10px] text-slate-500">em retrabalho operacional repetitivo</p>
+            <p class="mt-3 text-xs italic text-brand">💡 Quanto vale a hora da sua equipe? × 65</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 text-xl">📉</div>
+          <div>
+            <h3 class="font-bold text-brand display">Leads que não chegam</h3>
+            <p class="mt-1 text-xs text-slate-500">Sem vitrine digital, médicos potenciais simplesmente não encontram a marca</p>
+            <p class="mt-3 font-mono text-lg font-bold text-red-700">5–10 méd/mês</p>
+            <p class="text-[10px] text-slate-500">não capturados · até R$ 16.200/mês em receita não-realizada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUMO CENÁRIO SEM MUDANÇA -->
+    <div class="mt-8 rounded-3xl bg-gradient-to-br from-red-600 to-red-800 text-white p-6 sm:p-8 shadow-xl2">
+      <div class="grid sm:grid-cols-[1fr_auto] gap-6 items-center">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-red-200">Cenário sem mudança</p>
+          <p class="mt-2 display text-2xl sm:text-3xl font-extrabold leading-tight">
+            ≈ 8 dias úteis/mês em operação repetitiva<br/>
+            + ~10 médicos potenciais não capturados
+          </p>
+          <p class="mt-3 text-sm text-red-100">
+            <strong>Sem aparecer no balanço</strong> — mas drenando capacidade da equipe e receita futura, todos os meses.
+          </p>
+        </div>
+        <div class="text-center sm:text-right">
+          <p class="display text-5xl font-extrabold text-white">📉</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 text-center text-sm text-slate-600">
+      Continuar do jeito que está custa caro. <strong class="text-brand">A boa notícia:</strong> a solução custa uma fração disso.
+    </p>
+  </div>
+</section>
+
+
+<!-- COMO VAI FICAR -->
+<section class="py-24" style="background-color: #003768; color: white;">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Como vai ficar</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold max-w-3xl">
+      Um site que vende. Uma plataforma que opera. Em uma identidade só.
+    </h2>
+    <p class="mt-4 text-white/70 max-w-2xl">
+      Construído com a paleta nova (azul #003768 + verde #009E3D), tipografia premium e a voz "de médico para médico". Visualize abaixo o que será entregue.
+    </p>
+
+    <!-- Tabs / Tour de telas -->
+    <div class="mt-12 grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-7 rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-xl2 bg-white">
+        <img src="./img/03-dashboard.png" alt="Dashboard com KPIs" class="w-full block" />
+      </div>
+      <div class="lg:col-span-5 space-y-4">
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+          <h3 class="display font-bold text-lg">Dashboard com KPIs comparativos</h3>
+          <p class="mt-2 text-sm text-white/70">Faturamento, líquido, taxa adm, médicos ativos e a receber — todos com comparativo mês anterior e Top 5 expansível.</p>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+          <h3 class="display font-bold text-lg">Cadastro completo</h3>
+          <p class="mt-2 text-sm text-white/70">Dados pessoais, profissionais, endereço, PIX e upload de documentos (RG/CNH, comprovante, diploma, CRM).</p>
+        </div>
+        <div class="rounded-2xl bg-accent/15 border border-accent/30 p-5">
+          <h3 class="display font-bold text-lg text-accent-light">⚡ Automação de e-mail</h3>
+          <p class="mt-2 text-sm text-white/80">Ao lançar faturamento, a contabilidade recebe o e-mail padronizado com tabela completa de prestadores físicos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid 4 mini-screenshots -->
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <figure class="rounded-xl overflow-hidden ring-1 ring-white/10 bg-white">
+        <img src="./img/01-hero.png" alt="Site público" class="w-full aspect-[4/3] object-cover object-top" />
+        <figcaption class="bg-white/5 p-2 text-[10px] text-white/70 text-center uppercase tracking-wider">Site institucional</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden ring-1 ring-white/10 bg-white">
+        <img src="./img/04-medicos.png" alt="Lista de médicos" class="w-full aspect-[4/3] object-cover object-top" />
+        <figcaption class="bg-white/5 p-2 text-[10px] text-white/70 text-center uppercase tracking-wider">Médicos</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden ring-1 ring-white/10 bg-white">
+        <img src="./img/05-pagamentos.png" alt="Pagamentos" class="w-full aspect-[4/3] object-cover object-top" />
+        <figcaption class="bg-white/5 p-2 text-[10px] text-white/70 text-center uppercase tracking-wider">Pagamentos</figcaption>
+      </figure>
+      <figure class="rounded-xl overflow-hidden ring-1 ring-white/10 bg-white">
+        <img src="./img/06-email-modal.png" alt="Automação de e-mail" class="w-full aspect-[4/3] object-cover object-top" />
+        <figcaption class="bg-accent/30 p-2 text-[10px] text-white text-center uppercase tracking-wider font-bold">✨ Auto e-mail</figcaption>
+      </figure>
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="https://vidamed-vinicius.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-white text-brand px-6 py-3 font-semibold shadow-soft hover:bg-accent hover:text-white transition">
+        🔗 Navegar pelo demo ao vivo
+      </a>
+      <p class="mt-3 text-xs text-white/60">Login de teste: <code class="bg-white/10 px-2 py-0.5 rounded">financeiro@vidamedgestao.com.br</code></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ÂNCORA NOVA: COMPARAÇÃO COM AGÊNCIA -->
+<section class="relative overflow-hidden py-20 bg-gradient-to-br from-slate-50 via-white to-amber-50/30">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -left-10 top-10 h-72 w-72 rounded-full" style="background: rgba(245,158,11,.06); filter: blur(80px);"></div>
+  </div>
+
+  <div class="container-x relative reveal">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full bg-amber-100 text-amber-800 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
+        💼 Para efeito de comparação
+      </div>
+      <h2 class="mt-4 display text-3xl sm:text-4xl font-bold text-brand">
+        Quanto esse mesmo projeto custaria em uma <span class="text-accent">agência tradicional</span>?
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Antes de ver o investimento desta proposta, vale comparar com as opções típicas do mercado para um projeto de mesma complexidade — site institucional + plataforma SaaS B2B com automações.
+      </p>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-3 gap-5">
+      <!-- Agência Boutique -->
+      <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏢</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Opção 1</p>
+            <h3 class="font-display font-bold text-brand">Agência boutique</h3>
+            <p class="text-xs text-slate-500">São Paulo / Rio de Janeiro</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="font-mono text-2xl font-extrabold text-red-700">R$ 60.000 – R$ 120.000</p>
+          <p class="text-xs text-slate-500 mt-1">Prazo típico: <strong>4 a 6 meses</strong></p>
+        </div>
+        <ul class="mt-5 space-y-2 text-xs text-slate-600">
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Time de 4-6 pessoas envolvido</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Reuniões semanais de alinhamento</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Documentação pesada e formal</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Overhead corporativo no preço</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Curva de aprendizado do negócio</li>
+        </ul>
+      </div>
+
+      <!-- Agência Regional -->
+      <div class="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏬</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Opção 2</p>
+            <h3 class="font-display font-bold text-brand">Agência regional média</h3>
+            <p class="text-xs text-slate-500">Maceió / Nordeste</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="font-mono text-2xl font-extrabold text-amber-700">R$ 25.000 – R$ 50.000</p>
+          <p class="text-xs text-slate-500 mt-1">Prazo típico: <strong>3 a 4 meses</strong></p>
+        </div>
+        <ul class="mt-5 space-y-2 text-xs text-slate-600">
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Time de 2-3 pessoas envolvido</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Atendimento via gerente de projeto</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Curva de aprendizado do nicho médico</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Burocracia média</li>
+          <li class="flex gap-2"><span class="text-slate-400">•</span> Manutenção pós-entrega cobrada à parte</li>
+        </ul>
+      </div>
+
+      <!-- Vidamed (destaque) -->
+      <div class="relative">
+        <div class="absolute -top-3 left-6 z-20 bg-accent text-white text-[10px] font-bold uppercase tracking-widest rounded-full px-3 py-1 shadow-soft">⭐ Esta proposta</div>
+        <div class="rounded-2xl bg-gradient-to-br from-brand to-brand-dark text-white p-6 ring-2 ring-accent shadow-xl2 relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full" style="background: rgba(0,158,61,.3); filter: blur(50px);"></div>
+        <div class="relative flex items-center gap-2 mt-3">
+          <span class="text-2xl">✨</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">Opção 3</p>
+            <h3 class="font-display font-bold text-white">Vidamed × Victor Chastinet</h3>
+            <p class="text-xs text-white/70">Atendimento direto, sem intermediários</p>
+          </div>
+        </div>
+        <div class="relative mt-5">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-accent/20 border border-accent/30 px-3 py-2">
+            <span class="text-accent-light">🔒</span>
+            <p class="display text-sm font-bold text-accent-light">Revelado logo abaixo</p>
+          </div>
+          <p class="text-xs text-white/70 mt-2">Prazo: <strong class="text-white">4 semanas</strong></p>
+        </div>
+        <ul class="relative mt-5 space-y-2 text-xs text-white/85">
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Atendimento <strong>direto comigo</strong>, sem ruído</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Já estudei a Planilha 2026 e o rebranding</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Sem reaprender o negócio Vidamed</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Sem overhead — você paga produto, não estrutura</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Bônus de mentoria comercial inclusos</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-2xl bg-brand-50 border border-brand-100 p-5 sm:p-6 max-w-3xl mx-auto text-center">
+      <p class="text-sm sm:text-base text-brand">
+        💡 <strong>Mesma entrega técnica.</strong> Menos overhead corporativo. <strong>Profundidade real</strong> no contexto da Vidamed.
+      </p>
+      <p class="mt-2 text-xs text-slate-500">
+        Cotações referenciais: pesquisa pública de mercado em agências digitais brasileiras (jul/2026). Variação por região e complexidade.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ESCOPO -->
+<section class="py-24 bg-white">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Escopo</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl">
+      Dois produtos, uma identidade.
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-6">
+      <!-- SITE -->
+      <div class="rounded-3xl ring-1 ring-slate-200 p-8 bg-gradient-to-br from-slate-50 to-white">
+        <div class="flex items-center gap-3">
+          <div class="h-12 w-12 rounded-2xl bg-brand text-white flex items-center justify-center text-2xl">🌐</div>
+          <div>
+            <p class="text-xs uppercase tracking-widest text-slate-500">Entregável 1</p>
+            <h3 class="display text-2xl font-bold text-brand">Site institucional</h3>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-slate-600">
+          One-page navegável, focado no público médico, com identidade visual do rebranding 100% aplicada.
+        </p>
+        <ul class="mt-6 space-y-2.5 text-sm text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span> Hero com foto profissional + cards de prova social</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Seções: Quem somos · Para quem · Soluções · Planos · Treinamentos · Passo a passo</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Botões diretos para WhatsApp com mensagem pré-formatada</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Mobile-first, totalmente responsivo</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> SEO básico (title, meta, OpenGraph)</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Performance otimizada (LCP < 2s)</li>
+        </ul>
+      </div>
+
+      <!-- PLATAFORMA -->
+      <div class="rounded-3xl ring-2 ring-accent p-8 text-white shadow-card relative overflow-hidden" style="background-color: #003768;">
+        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full" style="background: rgba(0,158,61,.25); filter: blur(40px);"></div>
+        <div class="relative flex items-center gap-3">
+          <div class="h-12 w-12 rounded-2xl bg-accent text-white flex items-center justify-center text-2xl">⚙️</div>
+          <div>
+            <p class="text-xs uppercase tracking-widest text-accent-light">Entregável 2 · destaque</p>
+            <h3 class="display text-2xl font-bold">Plataforma de gestão</h3>
+          </div>
+        </div>
+        <p class="relative mt-4 text-sm text-white/80">
+          Substitui a operação em planilha por um sistema com dois perfis, dashboard e automações reais.
+        </p>
+        <ul class="relative mt-6 space-y-2.5 text-sm">
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> 2 perfis de acesso (Gestor e Financeiro)</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Dashboard com KPIs comparativos mês vs. mês</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> CRUD completo de médicos com upload de documentos</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Lançamento de pagamentos com cálculo automático de impostos</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Histórico filtrável de lançamentos</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> <strong>Automação:</strong> e-mail à contabilidade no clique do lançamento</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Replica o layout da Planilha 2026 (Rendimentos · Líquido · Imp · Taxa Adm · A Receber)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIMELINE -->
+<section class="py-24 bg-slate-50">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Como vamos entregar</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl">
+      4 semanas. Entregas semanais. Você acompanha tudo.
+    </h2>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 relative">
+        <div class="text-xs font-bold uppercase tracking-wider text-accent">Fase 01 · Semana 1</div>
+        <h3 class="mt-3 display font-bold text-brand">Setup + identidade</h3>
+        <p class="mt-2 text-sm text-slate-600">Configuração da hospedagem, domínio, paleta, tipografia, componentes-base e estrutura técnica.</p>
+        <div class="absolute -top-3 right-4 h-7 w-7 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center">1</div>
+      </div>
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 relative">
+        <div class="text-xs font-bold uppercase tracking-wider text-accent">Fase 02 · Semana 2</div>
+        <h3 class="mt-3 display font-bold text-brand">Site no ar + cadastros</h3>
+        <p class="mt-2 text-sm text-slate-600">Site institucional publicado e telas de cadastro de médicos funcionando.</p>
+        <div class="absolute -top-3 right-4 h-7 w-7 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center">2</div>
+      </div>
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 relative">
+        <div class="text-xs font-bold uppercase tracking-wider text-accent">Fase 03 · Semana 3</div>
+        <h3 class="mt-3 display font-bold text-brand">Lançamentos + automações</h3>
+        <p class="mt-2 text-sm text-slate-600">Dashboard, lançamento de pagamentos e automação de e-mail para a contabilidade.</p>
+        <div class="absolute -top-3 right-4 h-7 w-7 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center">3</div>
+      </div>
+      <div class="rounded-2xl bg-accent text-white p-6 ring-2 ring-accent relative">
+        <div class="text-xs font-bold uppercase tracking-wider text-white/80">Fase 04 · Semana 4</div>
+        <h3 class="mt-3 display font-bold">Go-live + treinamento</h3>
+        <p class="mt-2 text-sm text-white/90">Homologação com a equipe, treinamento (2h) e entrega oficial. Sistema operando.</p>
+        <div class="absolute -top-3 right-4 h-7 w-7 rounded-full bg-white text-accent text-xs font-bold flex items-center justify-center">🎉</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INVESTIMENTO -->
+<section id="investimento" class="py-24" style="background-color: #003768; color: white;">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent-light">Investimento</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold max-w-3xl">
+      Transparente. Justo. Sem letras miúdas.
+    </h2>
+    <p class="mt-4 text-white/70 max-w-2xl">
+      Os valores abaixo já consideram <strong class="text-accent-light">condição especial</strong> para fechamento dentro da validade desta proposta.
+    </p>
+
+    <!-- Cards de preço -->
+    <div class="mt-12 grid md:grid-cols-2 gap-6">
+      <!-- SITE -->
+      <div class="rounded-3xl bg-white/5 border border-white/10 p-8 backdrop-blur">
+        <p class="text-xs uppercase tracking-widest text-white/60">Site institucional</p>
+        <div class="mt-6 flex items-baseline gap-3">
+          <span class="display text-2xl price-old">R$ 2.000</span>
+          <span class="display text-5xl font-extrabold text-white">R$ 1.200</span>
+        </div>
+        <p class="mt-2 text-xs text-accent-light font-semibold">Economia de R$ 800 (40%)</p>
+        <hr class="my-6 border-white/10">
+        <ul class="space-y-2 text-sm text-white/80">
+          <li>✓ Site one-page completo</li>
+          <li>✓ Identidade visual aplicada</li>
+          <li>✓ Mobile-first + SEO básico</li>
+          <li>✓ Hospedagem e domínio inclusos na mensalidade</li>
+        </ul>
+      </div>
+
+      <!-- PLATAFORMA -->
+      <div class="rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent p-8 relative">
+        <div class="absolute -top-3 left-6 bg-accent text-white text-[10px] font-bold uppercase tracking-widest rounded-full px-3 py-1">⭐ Coração do projeto</div>
+        <p class="text-xs uppercase tracking-widest text-white/60">Plataforma de gestão</p>
+        <div class="mt-6 flex items-baseline gap-3">
+          <span class="display text-2xl price-old">R$ 18.500</span>
+          <span class="display text-5xl font-extrabold text-white">R$ 12.900</span>
+        </div>
+        <p class="mt-2 text-xs text-accent-light font-semibold">Economia de R$ 5.600 (30%)</p>
+
+        <!-- Callout: identidade própria -->
+        <div class="mt-6 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/50 p-4 backdrop-blur">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">🎨</span>
+            <div>
+              <p class="font-display text-base font-bold text-white leading-tight">
+                Feita do seu jeito, com a sua identidade
+              </p>
+              <p class="mt-1 text-xs text-white/80 leading-relaxed">
+                Paleta, logo, tipografia e voz <strong class="text-accent-light">100% Vidamed</strong> em cada tela. Não é SaaS genérico — é a <strong class="text-accent-light">sua</strong> plataforma.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-6 border-white/10">
+        <ul class="space-y-2 text-sm text-white/85">
+          <li>✓ Dashboard com KPIs comparativos</li>
+          <li>✓ Cadastro de médicos + upload de documentos</li>
+          <li>✓ Lançamentos com cálculo automático</li>
+          <li>✓ <strong>Automação de e-mail à contabilidade</strong></li>
+          <li>✓ 2 perfis (gestor + financeiro)</li>
+          <li>✓ Treinamento da equipe (2h)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="mt-8 rounded-3xl bg-white text-brand p-8 sm:p-10 shadow-lux" style="border-top:3px solid #c9a44c;">
+      <div class="grid sm:grid-cols-3 gap-6 items-center">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-slate-500">Investimento total</p>
+          <p class="mt-2 display text-5xl font-extrabold text-brand">R$ 14.100</p>
+          <p class="mt-1 text-sm text-slate-500"><span class="line-through">R$ 20.500</span> · economia de R$ 6.400</p>
+        </div>
+        <div class="sm:col-span-2 rounded-2xl bg-brand-50 p-5">
+          <p class="text-xs uppercase tracking-widest text-brand font-bold">Como pagar</p>
+          <div class="mt-3 grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3">
+              <div class="h-9 w-9 rounded-xl bg-brand text-white flex items-center justify-center font-bold text-sm">50%</div>
+              <div>
+                <p class="font-semibold text-brand">R$ 7.050</p>
+                <p class="text-xs text-slate-600">Entrada (kickoff do projeto)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="h-9 w-9 rounded-xl bg-accent text-white flex items-center justify-center font-bold text-sm">50%</div>
+              <div>
+                <p class="font-semibold text-brand">R$ 7.050</p>
+                <p class="text-xs text-slate-600">Na entrega (go-live)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÂNCORA 4: ROI / PAYBACK -->
+    <div class="mt-6 rounded-3xl bg-accent/10 border-2 border-accent/40 p-6 sm:p-8 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full" style="background: rgba(0,158,61,.3); filter: blur(50px);"></div>
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 rounded-full bg-accent text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+          🚀 Retorno esperado
+        </div>
+        <h3 class="mt-3 display text-2xl sm:text-3xl font-bold text-white">
+          Em quanto tempo o investimento <span class="text-accent-light">se paga?</span>
+        </h3>
+        <p class="mt-2 text-sm text-white/75 max-w-2xl">
+          Cada médico convertido gera receita recorrente para a Vidamed. O cálculo abaixo usa números reais da Planilha 2026 (taxa de R$ 120 + 17% sobre faturamento médio).
+        </p>
+
+        <div class="mt-6 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+            <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">Receita média</p>
+            <p class="mt-1 display text-2xl font-extrabold text-white">R$ 1.620 <span class="text-sm text-white/60">/mês</span></p>
+            <p class="text-[10px] text-white/60">por médico ativo · R$ 120 fixo + ~R$ 1.500 (17%)</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 border border-accent/40 p-4">
+            <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">Payback</p>
+            <p class="mt-1 display text-2xl font-extrabold text-accent-light">~9 meses ou 1 mês</p>
+            <p class="text-[10px] text-white/60">com 1 ou 9 médicos novos convertidos</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+            <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">LTV 12 meses</p>
+            <p class="mt-1 display text-2xl font-extrabold text-white">R$ 19.440</p>
+            <p class="text-[10px] text-white/60">por médico · <strong class="text-accent-light">supera o investimento já no 1º ano</strong></p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
+          <div class="flex items-center gap-2 text-white/85">
+            <span class="text-accent-light font-bold text-base">▶</span>
+            <span><strong class="text-white">1 médico</strong> novo paga ~9 meses do projeto</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/85">
+            <span class="text-accent-light font-bold text-base">▶</span>
+            <span><strong class="text-white">9 médicos</strong> novos pagam tudo em 1 mês</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/85">
+            <span class="text-accent-light font-bold text-base">▶</span>
+            <span>O bônus de mentoria comercial <strong class="text-white">acelera</strong> isso</span>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-xl bg-accent text-white p-4 text-center">
+          <p class="text-sm sm:text-base font-bold">
+            ✨ Em 12 meses, 5 médicos convertidos = R$ 97.200 de receita recorrente
+          </p>
+          <p class="text-xs text-white/85 mt-1">≈ 7x o investimento inicial · sem contar quem já estava na base</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENSALIDADE -->
+    <div class="mt-6 rounded-3xl bg-white/5 border border-white/10 p-8 sm:p-10">
+      <div class="grid sm:grid-cols-3 gap-6 items-center">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-accent-light font-bold">Manutenção · obrigatória</p>
+          <h3 class="mt-2 display text-2xl font-bold">Hospedagem + suporte</h3>
+        </div>
+        <div class="sm:col-span-2">
+          <div class="flex flex-wrap items-baseline gap-3">
+            <span class="display text-xl price-old">R$ 780/mês</span>
+            <span class="display text-4xl font-extrabold">R$ 400</span>
+            <span class="text-sm text-white/70">/mês</span>
+          </div>
+          <p class="mt-3 text-sm text-white/75">
+            <strong>Hospedagem premium + domínio + SSL</strong>, backups diários, suporte por WhatsApp, atualizações de segurança, envio de até 100 e-mails/dia (Resend) e <strong>até 4h/mês de pequenos ajustes ou evoluções</strong>.
+          </p>
+          <p class="mt-2 text-xs text-white/50">Início após o go-live · primeiro mês incluso no projeto · cancelável a qualquer momento (com aviso prévio de 30 dias).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center text-sm text-white/60">
+      Pagamento via PIX, transferência ou boleto. Nota fiscal emitida. Contrato simples por escopo.
+    </div>
+  </div>
+</section>
+
+
+<!-- BÔNUS: MENTORIA COMERCIAL -->
+<section id="bonus" class="relative overflow-hidden py-24 bg-gradient-to-br from-accent/5 via-white to-accent/10">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -left-20 top-20 h-72 w-72 rounded-full" style="background: rgba(0,158,61,.12); filter: blur(80px);"></div>
+    <div class="absolute -right-10 bottom-10 h-80 w-80 rounded-full" style="background: rgba(0,55,104,.08); filter: blur(80px);"></div>
+  </div>
+
+  <div class="container-x relative reveal">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-accent text-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest shadow-soft">
+          🎁 Bônus exclusivo · sem custo adicional
+        </div>
+        <h2 class="mt-4 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl leading-tight">
+          Mentoria Comercial Vidamed:<br/>
+          <span class="text-accent">para você crescer, não só operar.</span>
+        </h2>
+        <p class="mt-4 max-w-2xl text-slate-600">
+          Ter a plataforma é metade do caminho. A outra metade é <strong>saber atrair e converter médicos</strong>.
+          Por isso, ao fechar o projeto você recebe uma mentoria comercial completa — gratuitamente.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-4 ring-1 ring-accent/20 shadow-soft">
+        <p class="text-[10px] uppercase tracking-widest text-slate-500">Valor de mercado</p>
+        <p class="mt-1 flex items-baseline gap-2">
+          <span class="display text-2xl price-old">R$ 4.500</span>
+          <span class="display text-3xl font-extrabold text-accent">Incluso</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 PILARES -->
+    <div class="grid md:grid-cols-3 gap-5 mt-12">
+      <!-- PILAR 1: TREINAMENTO DE CAPTADOR -->
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-soft hover:shadow-card hover:-translate-y-1 transition">
+        <div class="flex items-center gap-3">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <p class="text-[10px] uppercase tracking-widest text-brand font-bold">Pilar 01</p>
+        </div>
+        <h3 class="mt-4 display text-xl font-bold text-brand">Treinamento de captador</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Capacitamos seu time de relacionamento para abordar médicos com a linguagem certa — "de médico para médico".
+        </p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span> 2 sessões ao vivo de 1h30 cada</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Como mapear médicos por perfil (plantonista, recém-formado, atuante)</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Quebrar objeções comuns sobre taxas e tributos</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Postura, tom e ritmo de venda consultiva</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Gravação das sessões para consulta futura</li>
+        </ul>
+      </div>
+
+      <!-- PILAR 2: FLUXOS DE CAPTAÇÃO -->
+      <div class="rounded-2xl bg-gradient-to-br from-brand to-brand-dark text-white p-6 ring-2 ring-accent shadow-card relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full" style="background: rgba(0,158,61,.25); filter: blur(40px);"></div>
+        <div class="absolute top-2 right-3 text-[10px] font-bold uppercase tracking-widest text-accent-light">⭐ Coração da mentoria</div>
+        <div class="relative flex items-center gap-3 mt-4">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-white">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4z"/><path d="M4 12h16v4H4z"/><path d="M4 20h10"/></svg>
+          </div>
+          <p class="text-[10px] uppercase tracking-widest text-accent-light font-bold">Pilar 02</p>
+        </div>
+        <h3 class="relative mt-4 display text-xl font-bold">Fluxos de captação</h3>
+        <p class="relative mt-2 text-sm text-white/85">
+          Jornada documentada e desenhada visualmente para sua equipe seguir do primeiro contato à assinatura.
+        </p>
+        <ul class="relative mt-5 space-y-2 text-sm">
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Funil visual: prospecção → contato → qualificação → assinatura</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Régua de follow-up (D+1, D+3, D+7, D+15)</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Critérios de qualificação (médico ideal Vidamed)</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Diagrama PDF + planilha de acompanhamento</li>
+          <li class="flex gap-2"><span class="text-accent-light">✓</span> Indicadores para medir cada etapa</li>
+        </ul>
+      </div>
+
+      <!-- PILAR 3: SCRIPTS DE ATENDIMENTO -->
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-soft hover:shadow-card hover:-translate-y-1 transition">
+        <div class="flex items-center gap-3">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <p class="text-[10px] uppercase tracking-widest text-brand font-bold">Pilar 03</p>
+        </div>
+        <h3 class="mt-4 display text-xl font-bold text-brand">Scripts de atendimento</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Biblioteca de mensagens prontas para cada momento da jornada do médico — é só copiar, ajustar o nome e enviar.
+        </p>
+        <ul class="mt-5 space-y-2 text-sm text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span> 10+ scripts de WhatsApp por estágio do funil</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Templates de e-mail (apresentação, follow-up, contrato)</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Roteiros para ligação telefônica</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Mensagens de boas-vindas pós-assinatura</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> Respostas para as 8 objeções mais comuns</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CALLOUT FINAL -->
+    <div class="mt-12 rounded-2xl bg-brand/5 border border-brand/20 p-6 sm:p-8 grid sm:grid-cols-[auto_1fr] gap-5 items-center">
+      <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-white text-3xl">🚀</div>
+      <div>
+        <h4 class="display text-xl font-bold text-brand">Por que essa mentoria existe nesta proposta?</h4>
+        <p class="mt-2 text-sm text-slate-700">
+          Porque não adianta entregar um sistema operacional bonito se vocês não captarem mais médicos para usá-lo.
+          A plataforma escala a operação — a mentoria escala o <strong>crescimento</strong>. As duas juntas pagam o investimento muito mais rápido.
+        </p>
+        <p class="mt-3 text-xs text-slate-500">
+          Mentoria conduzida após o go-live · cronograma combinado com a equipe Vidamed · materiais em PDF/Notion entregues no fim do projeto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INCLUSO / NÃO INCLUSO -->
+<section class="py-24 bg-white">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Transparência total</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl">
+      O que está incluso (e o que não está).
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl ring-1 ring-emerald-200 bg-emerald-50/50 p-6">
+        <h3 class="display font-bold text-emerald-800 flex items-center gap-2">
+          <span class="h-7 w-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-sm">✓</span>
+          Incluso
+        </h3>
+        <ul class="mt-4 space-y-2 text-sm text-emerald-900">
+          <li>• Certificado SSL (HTTPS)</li>
+          <li>• Treinamento da equipe (2h online)</li>
+          <li>• 30 dias de suporte pós-entrega</li>
+          <li>• Código-fonte entregue (sem refém)</li>
+          <li>• Manual técnico de operação</li>
+          <li>• Hospedagem e domínio (cobertos pela mensalidade)</li>
+          <li>• Até 100 e-mails/dia para a contabilidade (Resend)</li>
+          <li class="font-bold text-emerald-800">🎁 BÔNUS: Mentoria Comercial (R$ 4.500)</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl ring-1 ring-slate-200 bg-slate-50/50 p-6">
+        <h3 class="display font-bold text-slate-700 flex items-center gap-2">
+          <span class="h-7 w-7 rounded-full bg-slate-400 text-white flex items-center justify-center text-sm">i</span>
+          Não incluso (cotação à parte)
+        </h3>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li>• Integração com sistemas externos (ERP, contabilidade própria)</li>
+          <li>• Produção de fotos profissionais da equipe</li>
+          <li>• Envio de e-mail acima de 100/dia (plano gratuito Resend)</li>
+          <li>• Anúncios pagos (Google/Meta Ads)</li>
+          <li>• App nativo iOS/Android</li>
+          <li>• Mudanças fora do escopo após o aceite</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- POR QUE COMIGO -->
+<section class="py-24 bg-slate-50">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Por que comigo</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-3xl">
+      Não é um portfólio genérico. É solução feita para a Vidamed.
+    </h2>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+        <div class="h-10 w-10 rounded-xl bg-brand-50 text-brand flex items-center justify-center text-xl">🎯</div>
+        <h3 class="mt-4 display font-bold text-brand">Conheço seu negócio</h3>
+        <p class="mt-2 text-sm text-slate-600">Estudei sua Planilha 2026 e o material de rebranding antes de propor. Não é template.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+        <div class="h-10 w-10 rounded-xl bg-brand-50 text-brand flex items-center justify-center text-xl">⚡</div>
+        <h3 class="mt-4 display font-bold text-brand">Stack moderna</h3>
+        <p class="mt-2 text-sm text-slate-600">React + Tailwind + arquitetura escalável. Pronto para crescer com a Vidamed.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+        <div class="h-10 w-10 rounded-xl bg-brand-50 text-brand flex items-center justify-center text-xl">📖</div>
+        <h3 class="mt-4 display font-bold text-brand">Sem amarras</h3>
+        <p class="mt-2 text-sm text-slate-600">Código documentado e entregue. Se quiser trocar de fornecedor amanhã, leva tudo com você.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+        <div class="h-10 w-10 rounded-xl bg-brand-50 text-brand flex items-center justify-center text-xl">🤝</div>
+        <h3 class="mt-4 display font-bold text-brand">Suporte real</h3>
+        <p class="mt-2 text-sm text-slate-600">WhatsApp direto. Sem chamados em sistema. Resposta no mesmo dia útil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUEM ESTÁ POR TRÁS (FOUNDER) — ativa ❤ Amor + 🛡 Segurança -->
+<section class="py-24 bg-white">
+  <div class="container-x reveal max-w-4xl">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Quem está por trás</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand">Conheça quem vai construir.</h2>
+    <div class="mt-8 rounded-3xl bg-gradient-to-br from-slate-50 to-white p-6 sm:p-8 ring-1 ring-slate-200 shadow-soft grid sm:grid-cols-[auto_1fr] gap-6 items-center">
+      <!-- PLACEHOLDER foto: troque por <img src="foto.jpg"> -->
+      <div class="h-28 w-28 rounded-2xl bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center text-white display text-3xl font-extrabold shadow-card">VL</div>
+      <div>
+        <h3 class="display text-2xl font-bold text-brand">Victor Chastinet Lourencine</h3>
+        <p class="text-sm text-slate-500">Fundador · Desenvolvedor de produtos digitais</p>
+        <p class="mt-3 text-slate-700 italic">"Construo sistemas que tiram o operacional das costas de quem deveria estar crescendo o negócio."</p>
+        <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <span class="text-brand">▸ <strong>{{X}}</strong> projetos entregues</span>
+          <span class="text-brand">▸ <strong>{{Y}}</strong> anos no mercado</span>
+          <span class="text-brand">▸ Especialista em <strong>gestão para serviços</strong></span>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3 text-xs">
+          <a href="#" target="_blank" class="font-semibold text-accent hover:underline">LinkedIn</a>
+          <a href="#" target="_blank" class="font-semibold text-accent hover:underline">Instagram</a>
+          <a href="#" target="_blank" class="font-semibold text-accent hover:underline">Portfólio completo</a>
+        </div>
+        <p class="mt-3 text-[10px] text-slate-400">⚠️ Placeholder — Victor: me passe foto, nº de projetos/anos e links reais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PORTFÓLIO (com vídeo) — ativa 🛡 Segurança + 👁 Inveja -->
+<section class="py-24 bg-slate-50">
+  <div class="container-x reveal">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Portfólio</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand max-w-2xl">Projetos que já entreguei na prática.</h2>
+    <p class="mt-4 text-slate-600 max-w-2xl">Veja resultados reais. Cada projeto, um problema resolvido — não é teoria.</p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card com vídeo YouTube (thumbnail clicável — funciona no PDF) -->
+      <a href="#" target="_blank" rel="noopener" class="group rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="relative bg-gradient-to-br from-brand to-brand-dark aspect-video flex items-center justify-center">
+          <div class="h-14 w-14 rounded-full bg-black/40 flex items-center justify-center group-hover:bg-accent transition"><span class="text-white text-xl ml-1">▶</span></div>
+          <span class="absolute bottom-2 right-2 text-[9px] text-white/60 uppercase tracking-wider">vídeo demo</span>
+        </div>
+        <div class="p-4"><h3 class="display font-bold text-brand">Projeto / Cliente A</h3><p class="mt-1 text-sm text-slate-600">Resultado em 1 linha (ex: "operação 40% mais rápida").</p></div>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="group rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 hover:shadow-card transition">
+        <div class="relative bg-gradient-to-br from-accent to-accent-dark aspect-video flex items-center justify-center">
+          <div class="h-14 w-14 rounded-full bg-black/40 flex items-center justify-center group-hover:bg-brand transition"><span class="text-white text-xl ml-1">▶</span></div>
+          <span class="absolute bottom-2 right-2 text-[9px] text-white/60 uppercase tracking-wider">vídeo demo</span>
+        </div>
+        <div class="p-4"><h3 class="display font-bold text-brand">Projeto / Cliente B</h3><p class="mt-1 text-sm text-slate-600">Resultado em 1 linha.</p></div>
+      </a>
+      <div class="rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200">
+        <div class="bg-gradient-to-br from-slate-300 to-slate-400 aspect-video flex items-center justify-center text-white/70 text-sm">imagem do projeto</div>
+        <div class="p-4"><h3 class="display font-bold text-brand">Projeto / Cliente C</h3><p class="mt-1 text-sm text-slate-600">Resultado em 1 linha.</p></div>
+      </div>
+    </div>
+    <p class="mt-6 text-[10px] text-slate-400">⚠️ Placeholder — Victor: me passe links de YouTube (ou imagens) + nome + resultado de cada case. Sem material, esta seção é removida.</p>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="py-24 bg-white">
+  <div class="container-x reveal max-w-3xl">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-accent">Perguntas frequentes</p>
+    <h2 class="mt-3 display text-3xl sm:text-4xl font-bold text-brand">
+      Provavelmente você está pensando isso.
+    </h2>
+
+    <div class="mt-10 space-y-3">
+      <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 open:ring-brand">
+        <summary class="cursor-pointer font-semibold text-brand display flex items-center justify-between">
+          E se eu quiser parar a mensalidade?
+          <span class="text-accent group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Sem multa. Você avisa com 30 dias de antecedência. O site/plataforma continua seu — apenas precisará assumir hospedagem ou contratar outra manutenção.</p>
+      </details>
+      <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 open:ring-brand">
+        <summary class="cursor-pointer font-semibold text-brand display flex items-center justify-between">
+          Quem é dono do código?
+          <span class="text-accent group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Vocês. Após o pagamento integral, o código é 100% da Vidamed. Entrego o repositório completo + documentação.</p>
+      </details>
+      <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 open:ring-brand">
+        <summary class="cursor-pointer font-semibold text-brand display flex items-center justify-between">
+          E a LGPD? São dados sensíveis de médicos.
+          <span class="text-accent group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">A plataforma segue boas práticas: dados criptografados em trânsito (HTTPS), separação de perfis e logs de acesso. A política de privacidade será adequada à LGPD em conjunto com sua assessoria jurídica.</p>
+      </details>
+      <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 open:ring-brand">
+        <summary class="cursor-pointer font-semibold text-brand display flex items-center justify-between">
+          E se precisar de um campo novo depois?
+          <span class="text-accent group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Pequenos ajustes entram nas 4h/mês da mensalidade. Mudanças maiores são cotadas separadamente (~R$ 120-180/h).</p>
+      </details>
+      <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 open:ring-brand">
+        <summary class="cursor-pointer font-semibold text-brand display flex items-center justify-between">
+          Quanto tempo de garantia o sistema tem?
+          <span class="text-accent group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">90 dias para correção gratuita de bugs do que foi entregue. Após esse período, correções entram na mensalidade ou são cotadas à parte.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACEITE -->
+<section id="aceite" class="py-24" style="background-color: #003768; color: white;">
+  <div class="container-x reveal max-w-3xl text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs uppercase tracking-widest text-accent-light">
+      🚀 Vamos começar
+    </div>
+    <h2 class="mt-6 display text-4xl sm:text-5xl font-extrabold leading-tight">
+      Pronto pra <span class="text-accent">tirar do papel</span> e colocar a Vidamed no ar?
+    </h2>
+    <p class="mt-4 text-white/75 text-lg">
+      Aceite a proposta e em até 24h enviamos o contrato. Kickoff em até 5 dias úteis após assinatura.
+    </p>
+
+    <!-- Pertencimento — ativa 🤝 -->
+    <div class="mt-8 inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-5 py-2.5">
+      <div class="flex -space-x-2">
+        <span class="h-7 w-7 rounded-full bg-accent border-2 border-brand"></span>
+        <span class="h-7 w-7 rounded-full bg-accent-light border-2 border-brand"></span>
+        <span class="h-7 w-7 rounded-full bg-brand-light border-2 border-brand"></span>
+      </div>
+      <p class="text-sm text-white/85">Junte-se aos <strong class="text-white">130+ médicos</strong> que já confiam a gestão à Vidamed.</p>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-3">
+      <a href="https://wa.me/5582981908945?text=Olá%20Victor!%20Aceito%20a%20proposta%20da%20Vidamed.%20Vamos%20em%20frente!" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-white shadow-xl2 hover:bg-accent-light transition">
+        ✓ Aceitar proposta e iniciar
+      </a>
+      <a href="https://wa.me/5582981908945?text=Olá%20Victor!%20Tenho%20algumas%20dúvidas%20sobre%20a%20proposta." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-base font-semibold text-white hover:bg-white/20">
+        💬 Tenho dúvidas antes
+      </a>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+      <div class="rounded-xl bg-white/5 border border-white/10 p-4">
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Próximo passo</p>
+        <p class="mt-1 text-sm font-semibold">Aceite + dados cadastrais</p>
+      </div>
+      <div class="rounded-xl bg-white/5 border border-white/10 p-4">
+        <p class="text-[10px] uppercase tracking-widest text-white/50">Em até 24h</p>
+        <p class="mt-1 text-sm font-semibold">Contrato + boleto/PIX da 1ª parcela</p>
+      </div>
+      <div class="rounded-xl bg-accent/15 border border-accent/30 p-4">
+        <p class="text-[10px] uppercase tracking-widest text-accent-light">Em até 5 dias</p>
+        <p class="mt-1 text-sm font-semibold">Kickoff oficial 🚀</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-brand-900 text-white py-12" style="background-color:#001a30">
+  <div class="container-x">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="../logo.png" alt="Vidamed" class="h-8" />
+        <p class="mt-4 text-sm text-white/60">Proposta comercial confidencial preparada exclusivamente para a Vidamed Gestão.</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-bold">Apresentado por</p>
+        <p class="mt-2 font-semibold">Victor Chastinet Lourencine</p>
+        <p class="text-sm text-white/60">vclourencine@gmail.com</p>
+        <p class="text-sm text-white/60">(82) 98190-8945</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-bold">Validade</p>
+        <p class="mt-2 font-semibold">26 de junho de 2026</p>
+        <p class="text-sm text-white/60 mt-2">Após esta data, valores podem ser revistos.</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40 gap-3">
+      <p>© 2026 · Documento confidencial · Distribuição não autorizada</p>
+      <button onclick="window.print()" class="no-print rounded-full bg-white/5 px-4 py-1.5 hover:bg-white/10">
+        🖨️ Imprimir / Salvar PDF
+      </button>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Barra de progresso
+  const bar = document.getElementById('bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Reveal ao scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
