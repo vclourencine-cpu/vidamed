@@ -2,13 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { LogIn, AlertCircle, ArrowLeft } from 'lucide-react'
 import Logo from '../site/components/Logo'
-import { login, USUARIOS, rotaInicial } from '../lib/auth'
-
-const PERFIL_BADGE = {
-  admin:      { label: 'Sócio-Gestor', cls: 'bg-amber-100 text-amber-700' },
-  financeiro: { label: 'Financeiro',   cls: 'bg-accent/10 text-accent' },
-  medico:     { label: 'Médico',       cls: 'bg-teal-100 text-teal-700' }
-}
+import { login, USUARIOS, rotaInicial, PERFIL_INFO } from '../lib/auth'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -148,8 +142,12 @@ export default function Login() {
                     <div className="text-sm font-semibold text-slate-800">{u.nome}</div>
                     <div className="text-xs text-slate-500">{u.email}</div>
                   </div>
-                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${PERFIL_BADGE[u.perfil]?.cls}`}>
-                    {PERFIL_BADGE[u.perfil]?.label}
+                  <span className="flex flex-wrap justify-end gap-1">
+                    {u.perfis.map(p => (
+                      <span key={p} className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${PERFIL_INFO[p]?.cls}`}>
+                        {PERFIL_INFO[p]?.label}
+                      </span>
+                    ))}
                   </span>
                 </button>
               ))}

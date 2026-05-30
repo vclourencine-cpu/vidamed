@@ -3,6 +3,7 @@ import Home from './site/Home'
 import Login from './app/Login'
 import AppLayout from './app/Layout'
 import Dashboard from './app/Dashboard'
+import Corporativo from './app/Corporativo'
 import MedicosList from './app/medicos/MedicosList'
 import MedicoForm from './app/medicos/MedicoForm'
 import MedicoDetalhe from './app/medicos/MedicoDetalhe'
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="/app" element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="corporativo" element={<Corporativo />} />
         <Route path="leads" element={<LeadsList />} />
         <Route path="medicos" element={<MedicosList />} />
         <Route path="medicos/novo" element={<MedicoForm />} />

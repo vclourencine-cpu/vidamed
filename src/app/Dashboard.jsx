@@ -64,7 +64,7 @@ export default function Dashboard() {
             Visão geral · {competenciaLabel(COMPETENCIA_ATUAL)}
           </p>
           <h1 className="font-display text-3xl font-bold text-brand">
-            Bem-vindo, {session?.nome?.split(' ')[0]}
+            Bem-vindo, {session?.nome?.replace('Dr. ', '').replace('Dra. ', '').split(' ')[0]}
           </h1>
           <p className="mt-1 text-sm text-slate-600">
             Comparativo com {competenciaLabel(COMPETENCIA_ANTERIOR)}

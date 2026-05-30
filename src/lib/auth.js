@@ -2,61 +2,78 @@ import { storage } from './storage'
 
 const KEY = 'vidamed.session'
 
-// 3 perfis:
+// Cada usuário tem um ou mais perfis. Quem tem >1 alterna o "contexto ativo"
+// por um seletor (ex.: Dr. Jackson é sócio-gestor E médico).
 //  • admin     → sócios gestores. Visão total (corporativo + gerencial + operacional)
-//  • financeiro→ equipe operacional. Opera médico-a-médico + capta leads. Sem consolidado corporativo
+//  • financeiro→ operação médico-a-médico + capta leads. Sem consolidado corporativo
 //  • medico    → portal pessoal, read-only do próprio financeiro + DRE
 export const USUARIOS = [
   {
     email: 'admin@vidamedgestao.com.br',
     nome: 'Victor Chastinet',
     cargo: 'Sócio-Gestor',
-    perfil: 'admin',
+    perfis: ['admin'],
     avatar: 'VC'
   },
   {
     email: 'financeiro@vidamedgestao.com.br',
     nome: 'Equipe Financeira',
     cargo: 'Analista Administrativo-Financeiro',
-    perfil: 'financeiro',
+    perfis: ['financeiro'],
     avatar: 'EF'
   },
   {
-    email: 'medico@vidamedgestao.com.br',
+    // Sócio-gestor que também é médico parceiro → 2 perfis, alterna contexto
+    email: 'jackson@vidamedgestao.com.br',
     nome: 'Dr. Jackson Menezes',
-    cargo: 'Médico parceiro',
-    perfil: 'medico',
+    cargo: 'Sócio-Gestor & Médico',
+    perfis: ['admin', 'medico'],
     medicoId: 'm001',
     avatar: 'JM'
   }
 ]
 
-// ===== Permissões centralizadas (RBAC) =====
-// Em vez de espalhar `perfil === 'x'`, use estes helpers — uma fonte de verdade.
+export const PERFIL_INFO = {
+  admin:      { label: 'Sócio-Gestor', area: 'Painel de Gestão', rota: '/app/dashboard', cls: 'bg-amber-100 text-amber-700' },
+  financeiro: { label: 'Financeiro',   area: 'Operação',         rota: '/app/dashboard', cls: 'bg-accent/10 text-accent' },
+  medico:     { label: 'Médico',       area: 'Meu Portal',       rota: '/portal',         cls: 'bg-teal-100 text-teal-700' }
+}
+
+// Prioridade para definir o contexto inicial de quem tem múltiplos perfis
+const PRIORIDADE = ['admin', 'financeiro', 'medico']
+const perfilPrincipal = (perfis) => PRIORIDADE.find(p => perfis.includes(p)) || perfis[0]
+
+// ===== Permissões centralizadas (operam sobre o contexto ativo) =====
 export const perms = {
-  // Ações operacionais: lançar pagamento, cadastrar/editar médico
   operar: (p) => p === 'admin' || p === 'financeiro',
-  // Visão consolidada/gerencial (dashboard com soma de todos)
   verGerencial: (p) => p === 'admin',
-  // Visão corporativa (DRE da empresa, lucro dos sócios, config, usuários)
   verCorporativo: (p) => p === 'admin',
-  // Captação de leads (Kanban)
   captarLeads: (p) => p === 'admin' || p === 'financeiro',
-  // Portal pessoal do médico
   portalMedico: (p) => p === 'medico'
 }
 
 export const login = (email) => {
-  const usuario = USUARIOS.find(u => u.email.toLowerCase() === email.toLowerCase().trim())
-  if (!usuario) return null
-  storage.set(KEY, usuario)
-  return usuario
+  const u = USUARIOS.find(x => x.email.toLowerCase() === email.toLowerCase().trim())
+  if (!u) return null
+  const sessao = { ...u, perfil: perfilPrincipal(u.perfis) } // perfil = contexto ativo
+  storage.set(KEY, sessao)
+  return sessao
 }
 
 export const logout = () => storage.remove(KEY)
 
 export const getSession = () => storage.get(KEY)
 
-// Rota inicial conforme o perfil
-export const rotaInicial = (perfil) =>
-  perfil === 'medico' ? '/portal' : '/app/dashboard'
+// Troca o contexto ativo (para quem tem múltiplos perfis) e persiste
+export const trocarContexto = (novoPerfil) => {
+  const s = getSession()
+  if (!s || !s.perfis?.includes(novoPerfil)) return s
+  const atualizada = { ...s, perfil: novoPerfil }
+  storage.set(KEY, atualizada)
+  return atualizada
+}
+
+export const temMultiplosPerfis = (session) => (session?.perfis?.length || 0) > 1
+
+// Rota inicial conforme o contexto ativo
+export const rotaInicial = (perfil) => PERFIL_INFO[perfil]?.rota || '/app/dashboard'

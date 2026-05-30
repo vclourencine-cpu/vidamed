@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useNavigate, Link, Navigate } from 'react-router-dom'
 import {
-  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target
+  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target, Building2
 } from 'lucide-react'
 import Logo from '../site/components/Logo'
-import { getSession, logout } from '../lib/auth'
+import SwitcherContexto from '../components/SwitcherContexto'
+import { getSession, logout, perms } from '../lib/auth'
 
 const NAV = [
+  { to: '/app/corporativo', icon: Building2, label: 'Corporativo', soAdmin: true },
   { to: '/app/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/app/leads', icon: Target, label: 'Leads' },
   { to: '/app/medicos', icon: Users, label: 'Médicos' },
@@ -43,7 +45,7 @@ export default function AppLayout() {
         </div>
 
         <nav className="space-y-1 p-3">
-          {NAV.map((item) => (
+          {NAV.filter(item => !item.soAdmin || perms.verCorporativo(session?.perfil)).map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -95,6 +97,8 @@ export default function AppLayout() {
               <Bell size={18} />
               <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-accent" />
             </button>
+
+            <SwitcherContexto tema="claro" />
 
             <div className="relative">
               <button

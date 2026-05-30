@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavLink, Outlet, useNavigate, Navigate } from 'react-router-dom'
 import { LayoutDashboard, Receipt, FileText, User, LogOut, Menu, X, Bell } from 'lucide-react'
 import Logo from '../site/components/Logo'
+import SwitcherContexto from '../components/SwitcherContexto'
 import { getSession, logout } from '../lib/auth'
 
 const NAV = [
@@ -66,6 +67,7 @@ export default function PortalLayout() {
           <button onClick={() => setOpen(true)} className="lg:hidden"><Menu size={24} /></button>
           <p className="hidden text-sm text-slate-500 sm:block">Olá, <strong className="text-slate-800">{primeiroNome}</strong> 👋</p>
           <div className="flex items-center gap-3">
+            <SwitcherContexto tema="claro" />
             <button className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100">
               <Bell size={18} />
               <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-teal-500" />
