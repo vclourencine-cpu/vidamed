@@ -5,6 +5,7 @@ import {
 } from 'lucide-react'
 import Logo from '../site/components/Logo'
 import SwitcherContexto from '../components/SwitcherContexto'
+import ThemeToggle from '../components/ThemeToggle'
 import { getSession, logout, perms } from '../lib/auth'
 
 const NAV = [
@@ -99,6 +100,7 @@ export default function AppLayout() {
             </button>
 
             <SwitcherContexto tema="claro" />
+            <ThemeToggle />
 
             <div className="relative">
               <button

@@ -16,6 +16,65 @@ body { @apply bg-white text-slate-900; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
+/* =========================================================
+   DARK MODE — paleta derivada da identidade Vidamed
+   (azul-marinho profundo #003768 + verde vivo de acento)
+   Camada de cores aplicada às utilities mais usadas, para
+   cobrir o app inteiro sem reescrever cada tela.
+   ========================================================= */
+.dark {
+  --d-bg: #0a1626;        /* fundo base */
+  --d-surface: #0f2138;   /* cards */
+  --d-surface-2: #15273f; /* hover/inputs */
+  --d-border: #21385a;    /* bordas */
+  --d-text: #e6edf5;      /* texto principal */
+  --d-text-2: #9fb0c4;    /* texto secundário */
+  --d-text-3: #74879c;    /* texto terciário */
+  --d-brand-tint: #122a44;/* tom azul claro → escuro */
+  color-scheme: dark;
+}
+
+.dark body { background-color: var(--d-bg); color: var(--d-text); }
+.dark ::-webkit-scrollbar-track { background: #0a1626; }
+.dark ::-webkit-scrollbar-thumb { background: #2a3f5e; }
+
+/* Fundos de página e superfícies */
+.dark .bg-white { background-color: var(--d-surface) !important; }
+.dark .bg-slate-50, .dark .bg-neutral-bg { background-color: var(--d-bg) !important; }
+.dark .bg-slate-100 { background-color: var(--d-surface-2) !important; }
+.dark .bg-slate-50\/50, .dark .bg-slate-50\/30 { background-color: rgba(21,39,63,.5) !important; }
+.dark .bg-white\/80, .dark .bg-white\/95, .dark .bg-white\/60 { background-color: rgba(15,33,56,.9) !important; }
+
+/* Tons claros de acento → escurecidos mantendo matiz */
+.dark .bg-brand-50 { background-color: var(--d-brand-tint) !important; }
+.dark .bg-teal-50 { background-color: #0e2e30 !important; }
+.dark .bg-amber-50 { background-color: #2a2410 !important; }
+.dark .bg-red-50 { background-color: #2a1414 !important; }
+.dark .bg-emerald-50 { background-color: #0f2a1c !important; }
+
+/* Texto */
+.dark .text-slate-900, .dark .text-slate-800 { color: var(--d-text) !important; }
+.dark .text-slate-700, .dark .text-slate-600 { color: var(--d-text-2) !important; }
+.dark .text-slate-500, .dark .text-slate-400 { color: var(--d-text-3) !important; }
+.dark .text-brand { color: #5b9bd5 !important; }
+
+/* Bordas e rings */
+.dark .ring-slate-100, .dark .ring-slate-200,
+.dark .border-slate-100, .dark .border-slate-200 {
+  --tw-ring-color: var(--d-border) !important;
+  border-color: var(--d-border) !important;
+}
+
+/* Inputs */
+.dark input, .dark select, .dark textarea {
+  background-color: var(--d-surface-2) !important;
+  border-color: var(--d-border) !important;
+  color: var(--d-text) !important;
+}
+
+/* Componentes utilitários custom */
+.dark .card { background-color: var(--d-surface) !important; }
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-brand-dark hover:shadow-card;
