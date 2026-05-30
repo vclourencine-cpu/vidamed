@@ -8,14 +8,14 @@ import { PAGAMENTOS_SEED, agregarPorCompetencia, variacao } from '../data/pagame
 import { MEDICOS_SEED, getMedico } from '../data/medicos'
 import { INSTITUICOES, getInstituicao } from '../data/instituicoes'
 import { formatBRL, formatPercent, competenciaLabel, formatDate, toTitleCase } from '../lib/storage'
-import { getSession } from '../lib/auth'
+import { getSession, perms } from '../lib/auth'
 
 const COMPETENCIA_ATUAL = '2026-05'
 const COMPETENCIA_ANTERIOR = '2026-04'
 
 export default function Dashboard() {
   const session = getSession()
-  const isAdmin = session?.perfil === 'admin'
+  const isAdmin = perms.operar(session?.perfil)
   const [topExpandido, setTopExpandido] = useState(false)
 
   const atual = useMemo(() => agregarPorCompetencia(COMPETENCIA_ATUAL), [])

@@ -4,7 +4,7 @@ import { getMedico } from '../../data/medicos'
 import { PAGAMENTOS_SEED } from '../../data/pagamentos'
 import { getInstituicao } from '../../data/instituicoes'
 import { formatBRL, formatDate, competenciaLabel, toTitleCase } from '../../lib/storage'
-import { getSession } from '../../lib/auth'
+import { getSession, perms } from '../../lib/auth'
 
 const DOCS_LABELS = {
   rg_cnh: 'RG ou CNH',
@@ -17,7 +17,7 @@ export default function MedicoDetalhe() {
   const { id } = useParams()
   const medico = getMedico(id)
   const session = getSession()
-  const isAdmin = session?.perfil === 'admin'
+  const isAdmin = perms.operar(session?.perfil)
 
   if (!medico) return <Navigate to="/app/medicos" replace />
 

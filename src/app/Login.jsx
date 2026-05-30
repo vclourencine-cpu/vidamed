@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { LogIn, AlertCircle, ArrowLeft } from 'lucide-react'
 import Logo from '../site/components/Logo'
-import { login, USUARIOS } from '../lib/auth'
+import { login, USUARIOS, rotaInicial } from '../lib/auth'
+
+const PERFIL_BADGE = {
+  admin:      { label: 'Sócio-Gestor', cls: 'bg-amber-100 text-amber-700' },
+  financeiro: { label: 'Financeiro',   cls: 'bg-accent/10 text-accent' },
+  medico:     { label: 'Médico',       cls: 'bg-teal-100 text-teal-700' }
+}
 
 export default function Login() {
   const navigate = useNavigate()
@@ -10,7 +16,9 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [erro, setErro] = useState('')
-  const from = location.state?.from?.pathname || '/app/dashboard'
+  const from = location.state?.from?.pathname
+
+  const irPara = (user) => navigate(from || rotaInicial(user.perfil), { replace: true })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,14 +28,14 @@ export default function Login() {
       setErro('E-mail não reconhecido. Use um dos perfis de demonstração abaixo.')
       return
     }
-    navigate(from, { replace: true })
+    irPara(user)
   }
 
   const quickLogin = (e) => {
     setEmail(e)
     setSenha('demo')
     const user = login(e)
-    if (user) navigate(from, { replace: true })
+    if (user) irPara(user)
   }
 
   return (
@@ -140,10 +148,8 @@ export default function Login() {
                     <div className="text-sm font-semibold text-slate-800">{u.nome}</div>
                     <div className="text-xs text-slate-500">{u.email}</div>
                   </div>
-                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-                    u.perfil === 'gestor' ? 'bg-brand/10 text-brand' : 'bg-accent/10 text-accent'
-                  }`}>
-                    {u.perfil === 'gestor' ? 'Gestor' : 'Financeiro'}
+                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${PERFIL_BADGE[u.perfil]?.cls}`}>
+                    {PERFIL_BADGE[u.perfil]?.label}
                   </span>
                 </button>
               ))}

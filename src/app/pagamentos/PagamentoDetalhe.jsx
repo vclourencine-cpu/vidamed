@@ -8,7 +8,7 @@ import { PAGAMENTOS_SEED } from '../../data/pagamentos'
 import { getInstituicao } from '../../data/instituicoes'
 import { getMedico } from '../../data/medicos'
 import { formatBRL, formatDate, formatDateTime, competenciaLabel, toTitleCase } from '../../lib/storage'
-import { getSession } from '../../lib/auth'
+import { getSession, perms } from '../../lib/auth'
 
 const STATUS_LABEL = {
   lancado: { label: 'Lançado', cor: 'bg-amber-100 text-amber-700', icon: Clock },
@@ -20,7 +20,7 @@ export default function PagamentoDetalhe() {
   const { id } = useParams()
   const pagamento = PAGAMENTOS_SEED.find(p => p.id === id)
   const session = getSession()
-  const isAdmin = session?.perfil === 'admin'
+  const isAdmin = perms.operar(session?.perfil)
   const [emailReenviado, setEmailReenviado] = useState(false)
 
   if (!pagamento) return <Navigate to="/app/pagamentos" replace />

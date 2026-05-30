@@ -6,7 +6,7 @@ import {
 import { PAGAMENTOS_SEED } from '../../data/pagamentos'
 import { INSTITUICOES, getInstituicao } from '../../data/instituicoes'
 import { formatBRL, formatDate, competenciaLabel } from '../../lib/storage'
-import { getSession } from '../../lib/auth'
+import { getSession, perms } from '../../lib/auth'
 
 const STATUS_LABEL = {
   lancado: { label: 'Lançado', cor: 'bg-amber-100 text-amber-700', icon: Clock },
@@ -16,7 +16,7 @@ const STATUS_LABEL = {
 
 export default function PagamentoHistorico() {
   const session = getSession()
-  const isAdmin = session?.perfil === 'admin'
+  const isAdmin = perms.operar(session?.perfil)
   const [busca, setBusca] = useState('')
   const [filtroCompetencia, setFiltroCompetencia] = useState('todas')
   const [filtroStatus, setFiltroStatus] = useState('todos')

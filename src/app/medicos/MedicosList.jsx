@@ -2,14 +2,14 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Search, Plus, Filter, FileText, Phone, Mail, MoreVertical, CheckCircle2 } from 'lucide-react'
 import { MEDICOS_SEED } from '../../data/medicos'
-import { getSession } from '../../lib/auth'
+import { getSession, perms } from '../../lib/auth'
 import { formatDate, toTitleCase } from '../../lib/storage'
 import { useNavigate } from 'react-router-dom'
 
 export default function MedicosList() {
   const session = getSession()
   const navigate = useNavigate()
-  const isAdmin = session?.perfil === 'admin'
+  const isAdmin = perms.operar(session?.perfil)
   const [busca, setBusca] = useState('')
   const [filtroStatus, setFiltroStatus] = useState('todos')
   const [filtroEspecialidade, setFiltroEspecialidade] = useState('todas')

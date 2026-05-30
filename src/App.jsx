@@ -10,6 +10,11 @@ import PagamentoLancar from './app/pagamentos/PagamentoLancar'
 import PagamentoHistorico from './app/pagamentos/PagamentoHistorico'
 import PagamentoDetalhe from './app/pagamentos/PagamentoDetalhe'
 import LeadsList from './app/leads/LeadsList'
+import PortalLayout from './portal/PortalLayout'
+import DRE from './portal/DRE'
+import Extratos from './portal/Extratos'
+import Documentos from './portal/Documentos'
+import MeusDados from './portal/MeusDados'
 import { getSession } from './lib/auth'
 
 function ProtectedRoute({ children }) {
@@ -36,6 +41,15 @@ export default function App() {
         <Route path="pagamentos/lancar" element={<PagamentoLancar />} />
         <Route path="pagamentos/:id" element={<PagamentoDetalhe />} />
       </Route>
+
+      {/* Portal do Médico — perfil "medico" */}
+      <Route path="/portal" element={<ProtectedRoute><PortalLayout /></ProtectedRoute>}>
+        <Route index element={<DRE />} />
+        <Route path="extratos" element={<Extratos />} />
+        <Route path="documentos" element={<Documentos />} />
+        <Route path="perfil" element={<MeusDados />} />
+      </Route>
+
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

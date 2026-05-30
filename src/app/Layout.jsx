@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, Link, Navigate } from 'react-router-dom'
 import {
   LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target
 } from 'lucide-react'
@@ -18,6 +18,9 @@ export default function AppLayout() {
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
+
+  // Médico não acessa o painel interno — vai para o portal dele
+  if (session?.perfil === 'medico') return <Navigate to="/portal" replace />
 
   const handleLogout = () => {
     logout()
@@ -65,7 +68,7 @@ export default function AppLayout() {
               Perfil ativo
             </p>
             <p className="mt-1 font-display text-sm font-bold text-brand">
-              {session?.perfil === 'gestor' ? 'Gestor' : 'Financeiro / Admin'}
+              {session?.perfil === 'admin' ? 'Sócio-Gestor' : 'Financeiro / Administrativo'}
             </p>
             <p className="mt-0.5 text-xs text-slate-600">{session?.nome}</p>
           </div>
