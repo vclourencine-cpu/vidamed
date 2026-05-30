@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useNavigate, Link, Navigate } from 'react-router-dom'
 import {
-  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target, Building2
+  LayoutDashboard, Users, Wallet, LogOut, Menu, X, Bell, ChevronDown, Target
 } from 'lucide-react'
 import Logo from '../site/components/Logo'
 import SwitcherContexto from '../components/SwitcherContexto'
@@ -9,8 +9,7 @@ import ThemeToggle from '../components/ThemeToggle'
 import { getSession, logout, perms } from '../lib/auth'
 
 const NAV = [
-  { to: '/app/corporativo', icon: Building2, label: 'Corporativo', soAdmin: true },
-  { to: '/app/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/app/dashboard', icon: LayoutDashboard, label: 'Visão Geral' },
   { to: '/app/leads', icon: Target, label: 'Leads' },
   { to: '/app/medicos', icon: Users, label: 'Médicos' },
   { to: '/app/pagamentos', icon: Wallet, label: 'Pagamentos' }
